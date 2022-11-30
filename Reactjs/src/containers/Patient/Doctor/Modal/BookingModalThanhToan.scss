@@ -1,0 +1,21 @@
+.modal-thanhtoan-container{
+    height: 600px;
+    width: 800px !important;
+    position: relative;
+    .modal-content{
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+    .modal-thanhtoan-header{
+
+        // border: 1px solid red;
+        top: 0;
+
+    }
+    .modal-thanhtoan-body{
+        top: 0;
+        // border: 1px solid red;
+        // height: 500px;
+    }
+}

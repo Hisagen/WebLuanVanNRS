@@ -1,0 +1,73 @@
+.home-footer{
+    position: relative;
+    .tren{
+        border: 1px solid #E0E0DC;
+        height: 250px;
+        margin: 0 105px;
+        border-radius: 20px;
+        margin-bottom: 5px;
+        border-top: 5px solid #64b9e5;
+        display: flex;
+        .table1{
+            height: 100%;
+            width: 40%;
+            .logo{
+                .footer-logo{
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                    margin-left: -205px;
+                    transform: scale(0.5, 0.5);
+                }
+            }
+            .title1{
+                float: left;
+                margin-left: 25px;
+                font-size: 14px;
+            }
+        }
+        .table2{
+            height: 100%;
+            width: 30%;
+            .khung{
+                padding-top: 30px;
+                margin: 0 120px;
+
+                p{
+                    float: left;
+                    padding-bottom: 10px;
+                    padding-top: 5px;
+                }
+                
+                p:hover{
+                    color: #64b9e5;
+                    font-size: 15px;
+                    cursor: pointer;
+                    transition-duration: 0.5s;
+                    transition-timing-function: linear;
+                }
+            }
+        }.table3{
+            height: 100%;
+            width: 30%;
+
+            .khung{
+                padding: 30px;
+                margin-bottom: 5px;
+                p{
+                    float: left;
+                }
+                .title3{
+                    font-weight: 700;
+                }
+            }
+        }
+       
+    }
+
+    .duoi{
+        height: 80px;
+        background-color: #64b9e5;
+        color: white;
+    }
+}

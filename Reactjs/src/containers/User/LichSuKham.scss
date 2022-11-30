@@ -1,0 +1,63 @@
+.lichsukham {
+    height: auto;
+    width: 90%;
+
+    .table {
+
+        margin-left: 200px;
+        margin-top: 50px;
+        width: 666px;
+        height: 114px;
+        border-radius: 15px;
+        display: flex;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+
+
+        .thong-tin {
+            width: 450px;
+            text-align: left;
+            padding-left: 70px;
+            padding-top: 20px;
+        }
+
+        .trangthai-dakham {
+            position: absolute;
+            right: 670px;
+            margin-top: 45px;
+            margin-right: 10px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(79, 106, 79);
+            background-color: rgb(234, 226, 125);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+        }
+
+        .trangthai-hoanthanh {
+            position: absolute;
+            right: 680px;
+            margin-top: 45px;
+            margin-right: 5px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(175, 170, 98);
+            background-color: rgb(62, 241, 62);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+        }
+
+        .trangthai-chuakham {
+            position: absolute;
+            right: 700px;
+            margin-top: 45px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(237, 54, 3);
+            background-color: rgb(227, 163, 145);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+        }
+
+
+    }
+}

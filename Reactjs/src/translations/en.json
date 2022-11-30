@@ -1,0 +1,122 @@
+{
+    "homeheader": {
+        "speciality": "Medical speciality",
+        "searchdocter": "Find a doctor by specialty",
+        "health-facility": "Health ficility",
+        "select-room": "Choose hospital clinic",
+        "doctor": "Docter",
+        "select-doctor": "Choose a good doctor",
+        "fee": "Checkup package",
+        "check-health": "General health check",
+        "support": "Support",
+        "welcome": "Hello",
+        "history":"History",
+        "login": "Login",
+        "thongtin": "personal information",
+        "doimk": "Change Password",
+        "lienlac": "Contact",
+        "gopy": "Feedback"
+    },
+    "banner": {
+        "tilte1": "Medical Platform",
+        "tilte2": "Comprehensive health care",
+        "search": "Tìm kiếm theo chuyên khoa",
+        "child1": "Specialized examination",
+        "child2": "Remote examination",
+        "child3": "General examination",
+        "child4": "Medical test",
+        "child5": "Mental health",
+        "child6": "Dental examination"
+    },
+    "menu": {
+        "admin": {
+            "manage-vienchuc": "Users System",
+            "manage-docter": "Manage doctors",
+            "manage-admin": "Manage admin,",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinics",
+            "manage-clinic": "Manage clinics",
+            "specialty": "Specialties",
+            "manage-specialty": "Manage Specialties",
+            "handbook": "Handbook",
+            "manage-handbook": "Manage handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage medical examination plan"
+        }
+    },
+    "manage-vienchuc": {
+        "add": "Add new User",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "phone-number": "Phone Number",
+        "address": "Address",
+        "gender": "Gender",
+        "position": "Position",
+        "role": "Role",
+        "image": "Avatar",
+        "save": "Save user",
+        "edit": "Edit user"
+    },
+    "homepage": {
+        "outstanding-doctor": "Doctor",
+        "more-info": "More Info",
+        "specialy-poplular": "Specialies "
+    },
+    "manage-schedule": {
+        "title": "Manage doctor's examination plan ",
+        "choose-doctor": "Choose Doctor",
+        "choose-date": "Choose date",
+        "save-info": "Save info"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor does not have an appointment, please choose another time !",
+            "choose": "Choose ",
+            "book-free": " and book (free)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "ADDRESS OF EXAMINATION",
+            "price": "EXAMINATION PRICE",
+            "detail": "See detail",
+            "payment": "Sick days can be paid in the form of: ",
+            "hire-price": "Hire price list"
+        },
+        "booking-modal": {
+            "title": "Information to book a medical appointment",
+            "fullName": "First and last name",
+            "phoneNumber": "Phone number",
+            "email": "Email address",
+            "address": "Contact address",
+            "reason": "Reason for examination",
+            "birthday": "Date of birth",
+            "gender": "Gender",
+            "btnConfirm": "Confirm",
+            "btnCancel": "Cancel",
+            "priceBooking": "Free appointment booking",
+            "price": "Price: "
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create more information Doctor",
+            "select-doctor": "Select doctor",
+            "intro": "Introduction information",
+            "add": "Create information",
+            "save": "Save information",
+            "price": "Price ",
+            "payment": "Payment ",
+            "province": "Province",
+            "nameClinic": "Clinic's name",
+            "addressClinic": "Clinic's address",
+            "note": "Note",
+            "select-price": "Choose price",
+            "select-payment": "Choose payment",
+            "select-province": "Choose province"
+        }
+    }
+}

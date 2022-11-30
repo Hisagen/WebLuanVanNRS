@@ -1,0 +1,23 @@
+.container-pag3{
+    width: 100%;
+    height: 450px;
+    .fa-check-circle{
+        margin-top: 140px;
+        margin-left: 320px;
+        color: #00ba99;
+        font-size: 500%;
+
+        .status{
+            position: absolute;
+            font-size: 50%;
+            left: 195px;
+        }
+        .thank{
+            position: absolute;
+            font-size: 25%;
+            margin-top: 60px;
+            left: 155px;
+            color: black;
+        }
+    }
+}

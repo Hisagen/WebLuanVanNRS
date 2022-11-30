@@ -1,0 +1,85 @@
+.modal{
+    .modal-dialog{
+        padding-top: 200px;
+        width: 500px;
+        .modal-content{
+            .modal-header{
+
+                background-color: white;
+                color: black;
+            }
+            .modal-body{
+
+                .modal-tangEdit-body{
+                    // display: flex;
+    
+                    .input-container{
+                        // width: 468px;
+                        // display: flex;
+                        
+                        .sao{
+                            color: red;
+                        }
+                       input{
+                        border: none;
+                        border-radius: 0px;
+                        border-bottom: 1px dashed black;
+                        width: 468px;
+                        margin-bottom: 20px;
+                        outline: none;
+                       }
+    
+                       .form-control{
+                        width: 468px;
+                        outline: none;
+                       }
+                    }
+                }
+            }
+
+            .modal-footer{
+                gap: 84px;
+                .btn-save{
+                    font-size: 15px;
+                    width: 20%;
+                    // 
+                    background-color: rgb(6, 45, 45);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    i{
+                        padding-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                }
+                .btn-deleted{
+                    cursor: pointer;
+                    font-size: 15px;
+                    width: 20%;
+                    // 
+                    background-color: rgb(6, 45, 45);
+                    border-radius: 10px;
+                    color: white;
+                    i{
+                        padding-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                }
+                .btn-out{
+                        cursor: pointer;
+                        font-size: 15px;
+                        width: 20%;
+                        // 
+                        background-color: rgb(6, 45, 45);
+                        border-radius: 10px;
+                        i{
+                            padding-bottom: 10px;
+                            font-size: 18px;
+                        }
+    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.btn-pay{
+    margin-top: 15px;
+    border: none;
+    background: #00ba99;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    &:hover{
+        background: #12ebc3;
+    }
+}

@@ -1,0 +1,172 @@
+.feedback {
+    width: 100%;
+    padding-left: 100px;
+    display: flex;
+
+    .gop-y {
+        width: 100%;
+
+        .title-gopy {
+            padding-left: 700px !important;
+            width: 100%;
+            font-size: 40px;
+            color: #083b46;
+            font-weight: 600;
+        }
+
+        span {
+            margin-left: 470px;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+
+        }
+
+        .khung {
+            display: flex;
+            margin-top: 20px;
+
+            .table1 {
+                margin-left: 70px;
+
+                .title2 {
+                    margin: 10px 30px;
+                    font-size: 25px;
+                    font-weight: 400;
+                }
+
+                .tt {
+                    margin: 20px 50px;
+
+                    div {
+                        font-size: 15px;
+                        font-weight: 400;
+                    }
+
+                    input {
+                        height: 35px;
+                        width: 500px;
+                        border-radius: 20px;
+                        outline: none;
+                        border: 1px solid #c0bcbc;
+                        background-color: #ddd;
+                        -webkit-transition: all ease-in-out 0.25s;
+                        transition: all ease-in-out 0.25s;
+                        padding: 0px 12px;
+
+                        &:focus {
+                            background-color: white;
+                        }
+                    }
+
+                    textarea {
+                        height: 200px;
+                        width: 60%;
+                        border-radius: 4px;
+                        outline: none;
+                        border: 1px solid #c0bcbc;
+                        padding: 0px 12px;
+
+                    }
+                }
+
+            }
+
+            .table2 {
+                margin-left: 100px;
+
+                .title2 {
+                    margin: 10px 30px;
+                    font-size: 25px;
+                    font-weight: 400;
+                }
+
+                .tt {
+                    margin: 20px 50px;
+
+                    div {
+                        font-size: 15px;
+                        font-weight: 400;
+                    }
+
+                    input {
+                        height: 35px;
+                        width: 500px;
+                        border-radius: 20px;
+                        outline: none;
+                        border: 1px solid #c0bcbc;
+                        background-color: #ddd;
+                        -webkit-transition: all ease-in-out 0.25s;
+                        transition: all ease-in-out 0.25s;
+                        padding: 0px 12px;
+
+                        &:focus {
+                            background-color: white;
+                        }
+                    }
+
+                    textarea {
+                        height: 100px;
+                        width: 500px;
+                        border-radius: 20px;
+                        outline: none;
+                        border: 1px solid #c0bcbc;
+                        background-color: #ddd;
+                        -webkit-transition: all ease-in-out 0.25s;
+                        transition: all ease-in-out 0.25s;
+                        padding: 0px 12px;
+
+                        &:focus {
+                            background-color: white;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .btn-gui {
+            width: 100%;
+
+            // position: absolute;
+            button {
+                float: right;
+                margin-right: 595px;
+                width: 60px;
+                height: 40px;
+                border: 1px solid #c0bcbc;
+                background-color: rgb(60, 102, 226);
+                color: white;
+                border-radius: 4px;
+            }
+        }
+
+    }
+
+    // .khung-tintuc{
+
+    //     // margin-top: 50px;
+    //     height: 300px;
+    //     width: 330px;
+    //     position: absolute;
+    //     background-color: white;
+    //     margin-left: 850px;       
+    //     border-radius: 20px;
+    //     border-top: 5px solid #64b9e5;
+    //     overflow: hidden;
+    //     .title{
+    //         position: sticky;
+    //         top: 0;
+    //         background-color: white;
+    //     }
+    //     .khung{
+    //         padding: 50px;
+    //         i{
+    //             color: #49bce2;
+    //         }
+    //         p{
+    //             color: rgb(250, 70, 70);
+    //         }
+    //     }
+    // }
+}

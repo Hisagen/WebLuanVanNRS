@@ -1,0 +1,76 @@
+.modal-schedule-container{
+  // z-index: 1000;
+  width: 500px !important;
+ 
+  position: relative;
+  text-align: center;
+  .close{
+      background: linear-gradient(79.98deg, rgb(76, 196, 139) 26.18%, rgb(81, 180, 170) 99.22%);
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      &:hover{
+          animation: heartBeat; 
+          animation-duration: 2s;
+      }
+  }
+  .modal-content{
+      position: absolute;
+      top: 50px;
+      margin-left: 10px;
+  }
+  .modal-schedule-body{
+      height: 300px;
+      .btn-schedule{
+          background: linear-gradient(135deg, #22c1c3 0%, #fdbb2d 100%);
+      }
+
+      .pick-hour-container{
+        margin-top: 20px;
+        .btn-schedule {
+            background: white !important;
+            width: 200px;
+            margin-right: 10px;
+            margin-left: 10px;
+            &.active {
+                background: orange !important;
+
+            }
+        }
+      }
+  }
+}
+
+.btn-sua{
+  width: 100px;
+  margin-right: 155px;
+  background: linear-gradient(79.98deg, rgb(76, 196, 139) 26.18%, rgb(68, 161, 152) 99.22%);
+  height: 40px;
+
+  &:hover{
+      background: linear-gradient(79.98deg, rgb(55, 144, 103) 26.18%, rgb(93, 196, 186) 99.22%);
+      display: inline-block;
+      animation: pulse; 
+      animation-duration: 2s;
+      
+
+  }
+}
+
+.btn-xoa{
+  width: 100px;
+  margin-right: 15px;
+  background: linear-gradient(79.98deg, rgb(207, 119, 36) 26.18%, rgb(226, 96, 26) 99.22%);
+  height: 40px;
+
+  &:hover{
+      background: linear-gradient(79.98deg, rgb(224, 113, 10) 26.18%, rgb(210, 79, 9) 99.22%);
+      display: inline-block;
+      animation: pulse; 
+      animation-duration: 2s;
+      
+
+  }
+}
+

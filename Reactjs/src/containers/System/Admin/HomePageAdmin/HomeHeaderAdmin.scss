@@ -1,0 +1,143 @@
+.HomeHeaderAdmin{
+    // width: 100%;
+    // // display: flex;
+    // padding: 10px 20px;
+    // height: 80px;
+    // border-bottom: 1px solid #fff;
+    // box-shadow: 10px 10px 5px lightblue;
+
+    // z-index: 3;
+    .khung-header{
+        width: 100%;
+        display: flex;
+        padding: 10px 20px;
+        height: 80px;
+        border-bottom: 1px solid #fff;
+        box-shadow: 10px 10px 5px lightblue;
+
+        z-index: 3;
+        .table1{
+            width: 50%;
+            height: 100px;
+            padding: 12px 10px;
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            i{
+                cursor: pointer;
+                z-index: 3;
+            }
+        }
+        .table2{
+            width: 50%;
+            height: 100px;
+            padding: 12px 10px;
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            justify-content: flex-end;
+            i{
+                cursor: pointer;
+                .thongbao{
+                    border: 1px solid red;
+                    height: 12px;
+                    width: 12px;
+                    
+                    background-color: red;
+                    position: absolute;
+                    top: 23px;
+                    margin-left: 10px;
+                    border-radius: 3px;
+                    color: white;
+                    font-size: 10px;
+                    span{
+                        margin-left: 2px;
+                    }
+                }
+            }
+        }
+    
+        .table-doc{
+            position: relative;
+            border-right: 1px solid #fff;
+            z-index: 5;
+            height: 150vh;
+            width: 400px;
+            box-shadow: 10px 10px 5px lightblue;
+    
+            .user{
+                display: flex;
+                .avt-user{
+                    img{
+                        border: 1px solid black;
+                        justify-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        margin-top: 30px;
+                        margin-left: 20px;
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50px;
+                    }
+                }
+    
+                .name-user{
+                    margin-top: 65px;
+                    margin-left: 5px;
+                }
+            }
+    
+            .link{
+                div{
+                    height: 40px;
+                    border-bottom: 1px solid rgb(218, 216, 216);
+                    // color: rgb(138, 135, 135);
+                    cursor: pointer;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        // top: 0;
+                        left: 0; 
+                        right: 0;
+                        width: 0;
+                        height: 40px;
+                        background-color: #2e5b83;
+                        transition: width 1.8s;
+                        z-index: -1;
+                    } 
+                        &:hover{
+                            color: white;
+                            &:before{
+                                    width: 100%;
+                                    // left: 0;
+                                    right: auto;
+                            }
+                        }
+                }
+            }
+
+            .link{
+                .active{
+                    background-color: #2e5b83;
+                    color: white;
+                }
+            }
+            
+        }
+    }
+    .content{
+        // 
+        // width: 200px;
+        height: 100%;
+        z-index: 5;
+        margin-left: 350px;
+    }
+    .content2{
+        // 
+        // width: 200px;
+        height: 100vh;
+        z-index: 5;
+        // margin-left: 350px;
+    }
+}
+

@@ -1,0 +1,122 @@
+.doctor-schedule-container {
+    height: 100%;
+    
+    .all-schedule {
+
+        select {
+            border-bottom: 1px solid #ddd;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 0;
+            color: #337ab7;
+            font-weight: 600;
+
+            option {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .all-avaiable-time {
+
+        .text-celendar {
+            margin: 10px 0;
+            color: #333;
+
+            span {
+                text-transform: uppercase;
+                margin-left: 5px;
+            }
+        }
+
+        .time-content {
+            // border: 1px solid red;
+            width: fit-content !important;
+            height: fit-content;
+            margin-bottom: 10px;
+            .time-content-button {
+                display: flex;
+                gap: 25px;
+                flex-wrap: wrap;
+                .btn{
+                        // padding: 5px 10px;
+                        
+                        
+                    .btn-time {
+                        background-color: white;
+                        color: black;
+                        outline: none;
+                        border-radius: 3px;
+                        width: 100px;
+                        // height: 300px !important;    
+                        border: 1px solid rgb(2, 195, 154);
+                        // pointer-events: none;
+                        // opacity: 0.7;
+                        &:hover {
+                            background-color: rgb(2, 195, 154);
+                            color: white;
+                        }
+                        }
+          
+                    .btn-time-choose {
+                        background-color: rgb(2, 195, 154);
+                        color: white;
+                        outline: none;
+                        border-radius: 3px;
+                        width: 100px;
+                        border: 1px solid rgb(2, 195, 154);
+                        
+                    }
+                    .btn-time-block {
+                        background-color: rgb(246, 151, 151);
+                        color: black;
+                        outline: none;
+                        border-radius: 3px;
+                        width: 100px;
+                        // height: 300px !important;    
+                        border: 1px solid rgb(2, 195, 154);
+                        pointer-events: none;
+                        opacity: 0.9;
+                        cursor: not-allowed !important;
+                        border: 1px solid red;
+                        // cursor: pointer;
+                        
+                    }
+                    .btn-vie {
+                        min-width: 100px;
+                    }
+    
+                    .btn-en {
+                        min-width: 120px;
+                    }
+    
+                    .no-schedule {
+                        font-style: italic;
+                        font-size: 15px;
+                    }
+    
+                }
+                
+                .active{
+                    padding: 5px 10px;
+                    background-color: rgb(2, 195, 154);
+                    color: white;
+                    outline: none;
+                    border-radius: 3px;
+                    width: 105px;
+                    border: 1px solid rgb(2, 195, 154);
+                }
+                
+            }
+
+            .book-free {
+                margin-top: 10px;
+            }
+
+            
+        }
+    }
+}

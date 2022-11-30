@@ -1,0 +1,102 @@
+.section-body-specialty {
+    .slick-slider {
+        button {
+            display: none !important;
+        }
+    }
+}
+
+.specialty-child {
+    cursor: pointer;
+    height: 440px;
+    padding-left: 25px;
+
+    .color-1 {
+        width: 91%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        background: linear-gradient(180deg, rgb(43, 131, 160) 0%, rgba(170, 202, 229, 0.118) 75%);
+        border-radius: 5px;
+
+    }
+
+    .color-2 {
+        width: 91%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        background: linear-gradient(180deg, rgb(33, 117, 187) 0%, rgba(170, 202, 229, 0.118) 70%);
+        border-radius: 5px;
+
+    }
+
+    .color-3 {
+        width: 91%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        background: linear-gradient(180deg, rgb(39, 144, 100) 0%, rgba(170, 202, 229, 0.118) 70%);
+        border-radius: 5px;
+
+    }
+
+    .color-4 {
+        width: 91%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        background: linear-gradient(180deg, rgb(68, 128, 103) 0%, rgba(170, 202, 229, 0.118) 70%);
+        border-radius: 5px;
+
+    }
+
+    .color-5 {
+        width: 91%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        background: linear-gradient(180deg, rgb(6, 205, 122) 0%, rgba(170, 202, 229, 0.118) 70%);
+        border-radius: 5px;
+
+    }
+
+    .bg-image-specialty {
+        z-index: -1;
+        width: 217px;
+        height: 150px !important;
+        margin-left: 40px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-end-end-radius: 5px;
+        border-end-start-radius: 5px;
+    }
+
+    // .bg-image:hover{
+    //     border: 3px solid #f5f5f5;
+    //     transition-duration: 0.1s;
+    //     transition-timing-function: linear;
+
+    // }
+    .specialty-name {
+        padding: 10px 0;
+        width: 278px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 600;
+        background-color: #48b092;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: white;
+
+        &:hover {
+            display: block !important;
+            // border: 1px solid red;
+            display: inline-block;
+            animation: headShake;
+            animation-duration: 2s;
+            /* don't forget to set a duration! */
+        }
+    }
+}

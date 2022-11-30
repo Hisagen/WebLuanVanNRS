@@ -1,0 +1,227 @@
+.manage-schedule-container {
+    background-color: #cdcaca;
+    height: auto;
+    .m-s-title {
+        text-transform: uppercase;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
+        border: 1px solid black;
+        background-color: white;
+        width: 60%;
+        height: auto;
+        margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 5px 10px #888888;
+    }
+    .khung{
+        border: 1px solid black;
+        border-radius: 5px;
+        height: auto;
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: 5px 10px #888888;
+        background-color: white;
+        .name{
+            border: 1px solid black;
+            text-align: center;
+            padding-top: 5px;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+           i{
+            margin-right: 20px;
+           }
+        }
+    }
+
+    .khung2{
+        display: flex;
+
+        .table1{
+            width: 40%;
+            height: auto;
+            margin-top: 50px;
+            margin-left: 10px;
+            .name-khoa{
+                font-size: 20px;
+                text-align: center;
+            }
+            .menu-doc{
+                width: 350px;
+                height: 470px;
+                margin-left: 7%;
+                padding-top: 10px;
+                box-shadow: 10px 10px 5px lightblue;
+                overflow-y: scroll;
+                padding-left: 20px;
+                margin-left: 30px;
+                .khoa{
+                    background: white;
+                    font-size: 18px;
+                    font-family: 600;
+                    width: 300px;
+                    height: 140px;
+                    margin-bottom: 15px;
+                    border-radius: 15px;
+                    display: flex;
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+                    .img{
+                        height: 70px;
+                        width: 70px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        border-radius: 100%;
+                        margin-top: 30px;
+                        margin-left: 20px;
+                    }
+                    &:hover{
+                        animation: pulse; 
+                        animation-duration: 2s;
+                    }
+                }
+
+                .khoa-choose{
+                    background: rgb(147, 220, 207);
+                    font-size: 18px;
+                    font-family: 600;
+                    width: 300px;
+                    height: 140px;
+                    margin-bottom: 15px;
+                    border-radius: 15px;
+                    display: flex;
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+                    color: rgb(231, 24, 13);
+                    .img{
+                        height: 70px;
+                        width: 70px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        border-radius: 100%;
+                        margin-top: 30px;
+                        margin-left: 20px;
+                    }
+                   
+                }
+    
+                
+            }
+            // .khung-khoa{
+            //     border: 1px solid black;
+            //     width: 90%;
+            //     margin: auto;
+            //     height: auto;
+            //     .khoa-name{
+            //         border: 1px solid red;
+            //         width: 90%;
+            //         margin: auto;
+            //         margin-top: 10px;
+            //         margin-bottom: 10px;
+            //         border-radius: 5px;
+            //         padding-left: 20px;
+            //         padding-top: 8px;
+            //         height: 60px;
+            //         font-size: 15px;
+            //         font-weight: 600;
+            //         background-color: rgb(6, 173, 210);
+            //         color: white;
+            //         position: relative;
+            //         &:hover{
+            //             background-color: #083b46;
+            //         }
+            //         .img{
+            //             position: absolute;
+            //             height: 50px;
+            //             width: 50px;
+            //             background-position: center center;
+            //             background-repeat: no-repeat;
+            //             background-size: cover;
+            //             border-radius: 100%;
+            //             margin-top: 20px;
+            //             margin-left: 20px;
+            //             z-index: 5;
+            //         }
+            //         .name{
+            //             border: 1px solid red;
+            //         }
+            //     }
+            //     .khoa-name-choose {
+            //         border: 1px solid yellow;
+            //         width: 90%;
+            //         height: auto;
+            //         margin: auto;
+            //         margin-top: 10px;
+            //         margin-bottom: 10px;
+            //         border-radius: 5px;
+            //         padding-left: 20px;
+            //         padding-top: 8px;
+            //         height: 60px;
+            //         font-size: 15px;
+            //         font-weight: 600;
+            //         background-color: #083b46;
+            //         color: white;
+            //         position: relative;
+            //         // .img{
+            //         //     // position: absolute;
+            //         //     height: 50px;
+            //         //     width: 50px;
+            //         //     background-position: center center;
+            //         //     background-repeat: no-repeat;
+            //         //     background-size: cover;
+            //         //     border-radius: 100%;
+            //         //     margin-top: 20px;
+            //         //     margin-left: 20px;
+            //         // }
+            //         .name{
+            //             border: 1px solid red;
+            //         }
+            //     }
+            // }
+        }
+        .table2{
+            width: 60%;
+            right: 0;
+            margin-right: 10px;
+            margin-top: 70px;
+
+            .Layout-container{
+                .MuiGrid-root{
+                    border: 1px solid red;
+
+                }
+            }
+        }
+    }
+    .pick-hour-container {
+        // border: 1px solid white;
+        padding-top: 20px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        button {
+            padding: 0 15px;
+            border: 1px solid gray;
+        }
+    }
+
+    .btn-schedule {
+        &.active {
+            background-color: orange;
+        }
+    }
+
+    .btn-save-schedule {
+        margin-top: 20px;
+    }
+}

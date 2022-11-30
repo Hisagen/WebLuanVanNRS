@@ -1,0 +1,159 @@
+.khung-detailDoctor{
+
+    // background-color: #ddd;
+    .doctor-detail-container {
+        background-color: #f4f4f4;
+        border: 1px solid white;
+        
+
+        .khung{
+           
+            margin: auto;
+            width: 75%;
+            height: auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            
+            .intro-doctor {
+                display: flex;
+                background-color: white;
+                margin-bottom: 15px;
+                border-radius: 5px;
+
+                .content-left {
+                    // margin-left: 10px;
+                    // margin-top: 5px;
+                    background:no-repeat;
+                    width: 255px;
+                    height: 200px;
+                    background-size: 100%;
+                    // border: 1px solid red;
+                }
+        
+                .content-right {
+                    width: 80%;
+                    display: flex;
+                    // flex-direction: column;
+                    padding-left: 10px;
+        
+                    .up {
+                        font-size: 22px;
+                        font-weight: 500;
+                        padding-top: 50px;
+                        width: 50%;
+                        .chuyenkhoa{
+                            padding-top: 15px;
+                            font-size: 15px;
+                        }
+                        .container-giakham{
+                            padding-top: 15px;
+                            font-size: 15px;
+                            .giakham{
+                                font-family: Mulish;
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 16px;
+                                line-height: 18px;
+                                color: #3161ad;
+                            }
+                        }
+                    }
+                    .down{
+                        width: 50%;
+                        padding-top: 100px;
+                        padding-bottom: 15px;
+
+                        .luotxem{
+                            font-size: 15px;
+                            i{
+                                background: linear-gradient(79.98deg, rgb(76, 196, 139) 26.18%, rgb(68, 161, 152) 99.22%);
+                            }
+                        }
+
+                        .chiase{
+                            margin-top: 10px;
+                        }
+                    }
+                    
+                }
+            }
+        
+            .schedule-doctor {
+                
+                // display: flex;
+                padding: 20px;
+                height: auto;
+                background-color: #eff9fb;
+                border-radius: 5px;
+
+                .content-left {
+                    width: 100%;
+                }
+        
+                .content-right {
+                    width: 50%;
+        
+        
+                    .up {
+                        font-size: 20px;
+                        font-weight: 600;
+                        padding-top: 15px;
+                    }
+                }
+
+                .bot{
+                    .text{
+                        border: none;
+                        height: fit-content;
+                        margin-top: 15px;
+                        padding-top: 5px;
+                        // padding-left: 5px;
+                        width: fit-content;
+                        padding-right: 5px;
+                        border-radius: 2px;
+                        background-color: #dceaf3;
+                        font-size: 14px;
+                        .fas{
+                            color: #86899b !important;
+                            
+                        }
+                    }
+                    
+                    .btn-dat{
+                        margin-top: 25px;
+                        border: none;
+                        background: #00ba99;
+                        color: #fff;
+                        padding: 5px 40px;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        min-height: 40px;
+                        width: fit-content;
+                        gap: 5px;
+                        &:hover{
+                            background: #12ebc3;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .detail-infor-doctor {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background-color: white;
+            padding: 10px 100px;
+            width: 75%;
+            margin: auto;
+            h3 {
+                font-size: 17px;
+            }
+    
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+

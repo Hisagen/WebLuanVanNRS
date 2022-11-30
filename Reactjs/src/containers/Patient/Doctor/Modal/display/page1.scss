@@ -1,0 +1,90 @@
+.container-page1{
+    height: 480px;
+    width: 100%;
+    .table1{
+        padding-left: 15px;
+        margin-top: 40px;
+        margin-left: 30px;
+        border: 1px solid #e5e5e5;
+        height: 18%;
+        width: 90%;
+        border-radius: 3px;
+        display: flex;
+        gap: 20px;
+        .img{
+            padding-top: 10px;
+            img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .check-dangnhap{
+            padding-top: 10px;
+        }
+    }    
+    .table2{
+        margin-top: 20px;
+        margin-left: 30px;
+        border: 1px solid #e5e5e5;
+        height: 30%;
+        width: 90%;
+        border-radius: 3px;
+        .thoigian{
+            display: flex;
+            gap: 20px;
+            margin: 10px 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
+            .time{
+                    background-color: rgb(2, 195, 154);
+                    color: white;
+                    outline: none;
+                    border-radius: 3px;
+                    width: 100px;
+                    border: 1px solid rgb(2, 195, 154);
+                    text-align: center;
+            }
+
+            .day{
+                    background-color: #eaeff7;
+                    color: #4772b6;
+                    outline: none;
+                    border-radius: 3px;
+                    width: 100px;
+                    border: none;
+                    text-align: center;
+                    padding-top: 1px;
+            }
+        }    
+        
+        .thongtin-bacsi{
+            display: flex;
+            .detail{
+                margin-left: 20px;
+            }
+        }
+
+        .cost{
+            position: absolute;
+            right: 80px;
+            color: #02bb9a;
+            font-weight: 600;
+        }
+
+    }    
+    .table3{
+        margin-top: 20px;
+        margin-left: 30px;
+        border: 1px solid #e5e5e5;
+        height: 30%;
+        width: 90%;
+        border-radius: 3px;
+        textarea{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 140px;
+            resize: none;
+        }
+    }    
+}

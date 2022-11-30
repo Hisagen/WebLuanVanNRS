@@ -1,0 +1,83 @@
+.modal{
+    .modal-dialog{
+        padding-top: 200px;
+        width: 500px;
+        .modal-content{
+            .modal-header{
+
+                background-color: white;
+                color: black;
+            }
+            .modal-buoiCreate-body{
+                // display: flex;
+                .input-container{
+                    // 
+                    width: 468px;
+                    height: 70px;
+                    // display: flex;
+                    .sao{
+                        color: red;
+                    }
+                   input{
+                    border: none;
+                    border-radius: 0px;
+                    border-bottom: 1px dashed black;
+                    // width: 300px;
+                    outline: none;
+                    margin-bottom: 20px;
+                   }
+
+                   .select-chuyenkhoa{
+                    width: 468px;
+                    border: none !important;
+                    outline: none;
+                    // border-radius: none;
+                    // border-bottom: 1px solid black;
+                   }
+                }
+            }
+
+            .modal-footer{
+                gap: 84px;
+                .btn-save{
+                    font-size: 15px;
+                    width: 20%;
+                    // 
+                    background-color: rgb(6, 45, 45);
+                    border-radius: 10px;
+                    i{
+                        padding-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                }
+                .btn-deleted{
+                    font-size: 15px;
+                    width: 20%;
+                    // 
+                    background-color: rgb(6, 45, 45);
+                    border-radius: 10px;
+                    color: white;
+                    i{
+                        padding-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                }
+                .btn-out{
+                    
+                        font-size: 15px;
+                        width: 20%;
+                        // 
+                        background-color: rgb(6, 45, 45);
+                        border-radius: 10px;
+                        i{
+                            padding-bottom: 10px;
+                            font-size: 18px;
+                        }
+    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "homeheader": {
+        "speciality": "Chuyên khoa",
+        "searchdocter": "Tìm bác sĩ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-room": "Chọn bệnh viện phòng khám",
+        "doctor": "Bác sĩ",
+        "select-doctor": "Chọn bác sĩ giỏi",
+        "fee": "Gói khám",
+        "check-health": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào",
+        "history":"Lịch sử",
+        "login": "Đăng nhập",
+        "thongtin": "Thông tin",
+        "doimk": "Đổi mật khẩu",
+        "lienlac": "Liên lạc",
+        "gopy": "Góp ý"
+    },
+    "banner": {
+        "tilte1": "Nền tảng y tế",
+        "tilte2": "Chăm sóc sức khỏe toàn diện",
+        "search": "Tìm kiếm theo chuyên khoa",
+        "child1": "Khám chuyên khoa",
+        "child2": "Khám từ xa",
+        "child3": "Khám tổng quát",
+        "child4": "Xét nghiệm y học",
+        "child5": "Sức khỏe tinh thần",
+        "child6": "Khám nha khoa"
+    },
+    "menu": {
+        "admin": {
+            "manage-vienchuc": "Quản lý người dùng",
+            "manage-doctor": "Quản lý Bác Sĩ",
+            "manage-admin": "Quản lý Admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty": "Chuyên khoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "manage-handbook": "Quản lý cẩm nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh"
+        }
+    },
+    "manage-vienchuc": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "first-name": "Họ",
+        "last-name": "Tên",
+        "phone-number": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role": "Vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu viên chức",
+        "edit": "Sửa viên chức"
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ ",
+        "more-info": "Xem thêm",
+        "specialy-poplular": "Chuyên khoa"
+    },
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ ",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày",
+        "save-info": "Lưu thông tin"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "no-schedule": "Bác sĩ không có lịch hẹn, vui lòng chọn thời gian khác !",
+            "choose": "Chọn ",
+            "book-free": " và đặt (miễn phí)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "ĐỊA CHỈ KHÁM",
+            "price": "Giá khám",
+            "detail": "Xem chi tiết",
+            "payment": "Ngày bệnh có thể thanh toán bằng hình thức: ",
+            "hire-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullName": "Họ và tên",
+            "phoneNumber": "Số điện thoại",
+            "email": "Địa chỉ email",
+            "address": "Địa chỉ liên lạc",
+            "reason": "Lý do khám",
+            "birthday": "Ngày sinh",
+            "gender": "Giới tính",
+            "btnConfirm": "Xác nhận",
+            "btnCancel": "Hủy",
+            "priceBooking": "Miễn phí đặt lịch khám",
+            "price": "Giá khám: "
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Tạo thông tin Bác Sĩ",
+            "select-doctor": "Chọn Bác Sĩ",
+            "intro": "Thông tin giới thiệu",
+            "add": "Tạo thống tin",
+            "save": "Lưu thống tin",
+            "price": "Giá khám bệnh",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh thành",
+            "nameClinic": "Tên phòng khám",
+            "addressClinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú",
+            "select-price": "Chọn giá",
+            "select-payment": "Chọn phương thức thanh toán",
+            "select-province": "Chọn tình thành"
+        }
+    }
+}
