@@ -115,19 +115,22 @@ let editVienchuc = async (req, res) => {
 };
 
 let editImageVienchuc = async (req, res) => {
-  if (req.files === null) {
-    return res.status(400).json({ msg: "No file uploaded" });
-  }
-  const file = req.files.file;
-  var fs = require("fs");
+  if (req.files !== null) {
+    const file = req.files.file;
+    var fs = require("fs");
 
-  fs.writeFile(
-    `D:/Cac Mon Hoc/Sin/Web mssql/Reactjs/public/Image/ChucVu/${file.name}`,
-    file.data,
-    function (err) {
-      err || console.log("Data replaced \n");
-    }
-  );
+    fs.writeFile(
+      `D:/Cac Mon Hoc/Sin/Web mssql/Reactjs/public/Image/ChucVu/${file.name}`,
+      file.data,
+      function (err) {
+        err || console.log("Data replaced \n");
+      }
+    );
+    return res.status(200).json({
+      errCode: 0,
+      errMessage: "success!",
+    });
+  }
   return res.status(200).json({
     errCode: 0,
     errMessage: "success!",

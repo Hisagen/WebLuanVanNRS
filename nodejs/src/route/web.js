@@ -28,6 +28,7 @@ import phuongthucthanhtoanController from "../controllers/phuongthucthanhtoanCon
 import CountController from "../controllers/CountController";
 import searchController from "../controllers/searchController";
 import dichvuController from "../controllers/dichvuController";
+import hinhanhphieuchidinhController from "../controllers/hinhanhphieuchidinhController";
 
 import multer from "multer";
 import path from "path";
@@ -383,6 +384,13 @@ let initWebRoutes = (app) => {
 
   ////// sms
   router.get("/api/gui-sms", benhnhanController.guisms);
+
+  // lấy hình ảnh phiếu chỉ định
+
+  router.get(
+    "/api/get-hinhanh-pcd-id-dang-ky",
+    hinhanhphieuchidinhController.getHinhAnhPhieuChiDinhController
+  );
 
   return app.use("/", router);
 };

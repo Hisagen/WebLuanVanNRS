@@ -60,6 +60,7 @@ class ChuyenkhoaRedux extends Component {
   };
 
   handleEditChuyenkhoa = (chuyenkhoa) => {
+    console.log("detail", chuyenkhoa);
     let imageBase64 = "";
     if (chuyenkhoa.imageName !== "") {
       imageBase64 =
@@ -150,7 +151,7 @@ class ChuyenkhoaRedux extends Component {
 
   checkValidateInput = () => {
     let isValid = true;
-    let arrCheck = ["tenchuyenkhoa", "slbntd"];
+    let arrCheck = ["tenchuyenkhoa", "slbntd", "file"];
     for (let i = 0; i < arrCheck.length; i++) {
       if (!this.state[arrCheck[i]]) {
         isValid = false;

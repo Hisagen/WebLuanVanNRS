@@ -120,6 +120,7 @@ class VienchucRedux extends Component {
   };
 
   handleEditVienchuc = (vienchuc) => {
+    console.log("detail", vienchuc);
     let imageBase64 = "";
     if (vienchuc.imageName !== "") {
       imageBase64 = "http://localhost:3002/Image/ChucVu/" + vienchuc.imageName;
@@ -189,7 +190,7 @@ class VienchucRedux extends Component {
   handleOnChangeImage = async (event) => {
     let data = event.target.files;
     let file = data[0];
-
+    console.log("file", file);
     if (file) {
       let base64 = await CommonUtils.getBase64(file);
       let objectUrl = URL.createObjectURL(file);
@@ -215,70 +216,85 @@ class VienchucRedux extends Component {
   };
 
   handleSaveUser = (event) => {
-    let isValid = this.checkValidateInput();
-    if (isValid === false) return;
-
     let { action } = this.state;
     const fd = new FormData();
     if (action === CRUD_ACTIONS.CREATE) {
-      if (this.state.fileNew) {
-        fd.append("file", this.state.fileNew);
-      }
-
-      this.props.createNewVienchucRedux({
-        hoten: this.state.hoten,
-        gioitinh: this.state.gioitinh,
-        diachi: this.state.diachi,
-        sdt: this.state.sdt,
-        password: this.state.password,
-        email: this.state.email,
-        avatar: this.state.avatar,
-        contentHTML: this.state.contentHTML,
-        contentMarkdown: this.state.contentMarkdown,
-        description: this.state.description,
-        id_xaphuong: this.state.id_xaphuong,
-        id_chuyenkhoa: this.state.id_chuyenkhoa,
-        id_tdhv: this.state.id_tdhv,
-        id_chucvu: this.state.id_chucvu,
-        fd: fd,
-      });
-    }
-    if (action === CRUD_ACTIONS.EDIT) {
-      if (this.state.fileNew) {
-        if (this.state.imageName) {
-          fd.append("file", this.state.fileNew, this.state.imageName);
-        } else {
+      let isValid = this.checkValidateInputCreate();
+      if (isValid === true) {
+        if (this.state.fileNew) {
           fd.append("file", this.state.fileNew);
         }
+
+        this.props.createNewVienchucRedux({
+          hoten: this.state.hoten,
+          gioitinh: this.state.gioitinh,
+          diachi: this.state.diachi,
+          sdt: this.state.sdt,
+          password: this.state.password,
+          email: this.state.email,
+          avatar: this.state.avatar,
+          contentHTML: this.state.contentHTML,
+          contentMarkdown: this.state.contentMarkdown,
+          description: this.state.description,
+          id_xaphuong: this.state.id_xaphuong,
+          id_chuyenkhoa: this.state.id_chuyenkhoa,
+          id_tdhv: this.state.id_tdhv,
+          id_chucvu: this.state.id_chucvu,
+          fd: fd,
+        });
       }
-      this.props.editVienchucRedux({
-        id: this.state.vienchucEditId,
-        hoten: this.state.hoten,
-        gioitinh: this.state.gioitinh,
-        diachi: this.state.diachi,
-        sdt: this.state.sdt,
-        password: this.state.password,
-        email: this.state.email,
-        avatar: this.state.avatar,
-        contentHTML: this.state.contentHTML,
-        contentMarkdown: this.state.contentMarkdown,
-        description: this.state.description,
-        id_xaphuong: this.state.id_xaphuong,
-        id_chuyenkhoa: this.state.id_chuyenkhoa,
-        id_tdhv: this.state.id_tdhv,
-        id_chucvu: this.state.id_chucvu,
-        selectedChuyenkhoa: this.state.selectedChuyenkhoa,
-        selectedChucvu: this.state.selectedChucvu,
-        selectedXaphuong: this.state.selectedXaphuong,
-        selectedTdhv: this.state.selectedTdhv,
-        fd: fd,
-      });
+    }
+    if (action === CRUD_ACTIONS.EDIT) {
+      let check = this.checkValidateInputEdit();
+
+      if (check === true) {
+        if (this.state.fileNew) {
+          if (this.state.imageName) {
+            fd.append("file", this.state.fileNew, this.state.imageName);
+          } else {
+            fd.append("file", this.state.fileNew);
+          }
+        }
+        this.props.editVienchucRedux({
+          id: this.state.vienchucEditId,
+          hoten: this.state.hoten,
+          gioitinh: this.state.gioitinh,
+          diachi: this.state.diachi,
+          sdt: this.state.sdt,
+          password: this.state.password,
+          email: this.state.email,
+          avatar: this.state.avatar,
+          contentHTML: this.state.contentHTML,
+          contentMarkdown: this.state.contentMarkdown,
+          description: this.state.description,
+          id_xaphuong: this.state.id_xaphuong,
+          id_chuyenkhoa: this.state.id_chuyenkhoa,
+          id_tdhv: this.state.id_tdhv,
+          id_chucvu: this.state.id_chucvu,
+          selectedChuyenkhoa: this.state.selectedChuyenkhoa,
+          selectedChucvu: this.state.selectedChucvu,
+          selectedXaphuong: this.state.selectedXaphuong,
+          selectedTdhv: this.state.selectedTdhv,
+          fd: fd,
+        });
+      }
     }
   };
 
-  checkValidateInput = () => {
+  checkValidateInputCreate = () => {
     let isValid = true;
-    let arrCheck = ["email", "password", "hoten", "file"];
+    let arrCheck = [
+      "email",
+      "password",
+      "hoten",
+      "sdt",
+      "diachi",
+      "description",
+      "gioitinh",
+      "id_chuyenkhoa",
+      "id_chucvu",
+      "file",
+    ];
     for (let i = 0; i < arrCheck.length; i++) {
       if (!this.state[arrCheck[i]]) {
         isValid = false;
@@ -288,7 +304,28 @@ class VienchucRedux extends Component {
     }
     return isValid;
   };
-
+  checkValidateInputEdit = () => {
+    let isValid = true;
+    let arrCheck = [
+      "email",
+      "password",
+      "hoten",
+      "sdt",
+      "diachi",
+      "description",
+      "gioitinh",
+      "id_chuyenkhoa",
+      "id_chucvu",
+    ];
+    for (let i = 0; i < arrCheck.length; i++) {
+      if (!this.state[arrCheck[i]]) {
+        isValid = false;
+        alert("This input is required: " + arrCheck[i]);
+        break;
+      }
+    }
+    return isValid;
+  };
   onChangeInput = (event, id) => {
     let copyState = { ...this.state };
     copyState[id] = event.target.value;
@@ -538,7 +575,7 @@ class VienchucRedux extends Component {
                     })}
                 </select>
               </div>
-              <div className="col-3">
+              {/* <div className="col-3">
                 <label>Xã Phường</label>
                 <select
                   className="form-control"
@@ -564,7 +601,7 @@ class VienchucRedux extends Component {
                       );
                     })}
                 </select>
-              </div>
+              </div> */}
               {/* <form
                 action="#"
                 method="POST"

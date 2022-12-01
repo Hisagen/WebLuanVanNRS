@@ -4,11 +4,7 @@ import { FormattedMessage } from "react-intl";
 import "./LichSuKham.scss";
 import HomeHeaderNew from "../Auth/HomePageNew/HomeHeaderNew";
 import HomeFooter from "../HomePage/HomeFooter";
-import {
-  editBenhnhanService,
-  getIdBenhnhanService,
-  createBenhnhanService,
-} from "../../services/benhnhanService";
+import { getHinhAnhChiDinhIdDangKyService } from "../../services/hinhanhPCDService";
 import { toast } from "react-toastify";
 import DatePicker from "../../components/Input/DatePicker";
 import { emitter } from "../../utils/emitter";
@@ -20,6 +16,7 @@ import { createLogger } from "redux-logger";
 import { createGlobalStyle } from "styled-components";
 import moment from "moment";
 import ModalChitietdatkham from "./modalChitietdatkham";
+// import imgTest from "../../../../../../File ảnh chỉ định/Upload/Company/noisoi_obung.png";
 class LichSuKham extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +63,10 @@ class LichSuKham extends Component {
       ...copyState,
     });
   };
-  handleChiTiet = (data) => {
+  handleChiTiet = async (data) => {
+    console.log("it dang ky", data.id);
+    let api = await getHinhAnhChiDinhIdDangKyService(data.id);
+    console.log("api", api);
     this.setState({
       openChiTiet: true,
       data: data,
@@ -90,6 +90,8 @@ class LichSuKham extends Component {
       diachi,
       cccd,
     } = this.state;
+    let img =
+      "../../../../../../File ảnh chỉ định/Upload/Company/noisoi_obung.png";
     return (
       <>
         <HomeHeaderNew
@@ -97,6 +99,16 @@ class LichSuKham extends Component {
           isShowBanner={false}
           pageInformation={true}
         />
+        <div>
+          test hình ngoài thư mục react
+          <div
+            style={{
+              backgroundImage: `url(${img})`,
+            }}
+          >
+            <img src={img}></img>
+          </div>
+        </div>
         <div className="information-container">
           <div
             className=""

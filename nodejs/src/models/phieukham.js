@@ -18,15 +18,18 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "id",
         as: "phieukhamdangky",
       });
+      phieukhams.hasMany(models.phieuchidinhs, {
+        foreignKey: "id",
+        as: "phieuchidinhphieukham",
+      });
     }
   }
   phieukhams.init(
     {
-      chuandoan: DataTypes.STRING,
-      loidan: DataTypes.STRING,
-      ghichu: DataTypes.STRING,
+      id_dangky: DataTypes.INTEGER,
       mabaohiemyte: DataTypes.STRING,
-      mahinhthucthanhtoan: DataTypes.INTEGER,
+      trangthai: DataTypes.STRING,
+      id_NhanVienTiepNhan: DataTypes.INTEGER,
     },
     {
       sequelize,
