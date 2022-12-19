@@ -38,7 +38,20 @@ class HomeHeaderAdmin extends Component {
       action: false,
       link: "",
       url: "",
+      name: "",
     };
+  }
+  async componentDidMount() {
+    setTimeout(() => {
+      let items = JSON.parse(localStorage.getItem("persist:vienchuc"));
+      let dataUser = JSON.parse(items?.vienchucInfo);
+      console.log("==============> dataUser", dataUser);
+      if (dataUser) {
+        this.setState({
+          name: dataUser.hoten,
+        });
+      }
+    }, 500);
   }
   handleAction = () => {
     this.setState(
@@ -76,7 +89,7 @@ class HomeHeaderAdmin extends Component {
                   <div className="avt-user">
                     <img src={avt}></img>
                   </div>
-                  <div className="name-user">Nguyễn Ra Sin</div>
+                  <div className="name-user">{this.state?.name}</div>
                 </div>
                 <hr />
                 {/* Link */}

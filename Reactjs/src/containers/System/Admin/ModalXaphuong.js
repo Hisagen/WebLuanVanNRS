@@ -133,8 +133,8 @@ class ModalXaphuong extends Component {
                     huyenquans.map((item, index) => {
                       return (
                         <option id={index} value={item.id}>
-                          {item.tenxaphuong} -{" "}
-                          {item.huyenquantinhthanh.tentinhthanh}
+                          {item?.tenxaphuong} -
+                          {item?.huyenquantinhthanh?.tentinhthanh}
                         </option>
                       );
                     })}

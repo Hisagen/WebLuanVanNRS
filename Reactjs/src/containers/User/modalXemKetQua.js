@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import "./modalChitietdatkham.scss";
+import "./modalXemKetQua.scss";
 import { toast } from "react-toastify";
 import * as actions from "../../store/actions";
 import moment from "moment";
 import { getHinhAnhChiDinhIdDangKyService } from "../../services/hinhanhPCDService";
-import ModalXemKetQua from "./modalXemKetQua";
+
 import {
   getIdBenhnhanService,
   doimatkhauService,
 } from "../../services/benhnhanService";
-class modalDoiMatKhau extends Component {
+import { createGlobalStyle } from "styled-components";
+class modalXemKetQua extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,16 +21,40 @@ class modalDoiMatKhau extends Component {
       pass2: "",
       pass3: "",
       passCurrent: "",
-      id: "",
-      ArrayImage: [],
-      openXemKetQua: false,
       id_dangky: "",
+      ArrayImage: [],
     };
   }
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    let api = await getHinhAnhChiDinhIdDangKyService(this.props?.id_dangky);
+    console.log("modalXemKetQua", api);
+    if (api && api.data.length > 0) {
+      this.setState({
+        ArrayImage: api.data,
+      });
+    }
+  }
   //hàm dùng để in hoa kí tự đầu tiên
-  async componentDidUpdate(prevProps, presState, snapshot) {}
+  async componentDidUpdate(prevProps, presState, snapshot) {
+    if (presState.id_dangky !== prevProps.id_dangky) {
+      this.setState(
+        {
+          id_dangky: prevProps.id_dangky,
+        },
+        async () => {
+          let api = await getHinhAnhChiDinhIdDangKyService(
+            this.state.id_dangky
+          );
+          if (api && api.data.length > 0) {
+            this.setState({
+              ArrayImage: api.data,
+            });
+          }
+        }
+      );
+    }
+  }
 
   toggle = () => {
     this.props.toggleFromParent();
@@ -39,27 +64,9 @@ class modalDoiMatKhau extends Component {
       isOpenDoiMatKhau: !this.state.isOpenDoiMatKhau,
     });
   };
-  handleXemKetQua = async () => {
-    // let api = await getHinhAnhChiDinhIdDangKyService(this.props?.data?.id);
-    // if (api && api.data.length > 0) {
-    //   this.setState(
-    //     {
-    //       ArrayImage: api.data,
-    //     },
-    //     () => {
-    //       console.log("ArrayImage", this.state.ArrayImage);
-    //     }
-    //   );
-    // }
-    this.setState({
-      openXemKetQua: true,
-    });
-  };
-  handleOnOFF = () => {
-    this.setState({
-      openXemKetQua: !this.state.openXemKetQua,
-    });
-  };
+  // handleXemKetQua = async () => {
+
+  // };
   render() {
     let date = moment(this.props.data?.dangkylichbacsikham?.ngay).format(
       "DD/MM/YYYY"
@@ -70,13 +77,38 @@ class modalDoiMatKhau extends Component {
         toggle={() => {
           this.toggle();
         }}
-        className="modal-chitietlsk-container"
+        className="modal-chitietKQ-container"
         size="lg"
       >
-        <ModalHeader>Chi Tiết Lịch Khám</ModalHeader>
+        <ModalHeader>Chi Tiết Kết Quả khám bệnh</ModalHeader>
         <ModalBody>
-          <div className="chitietdatkham-container">
-            <div
+          <div className="chitietKQ-container">
+            <div>
+              {this.state.ArrayImage &&
+                this.state.ArrayImage.length > 0 &&
+                this.state.ArrayImage.map((item, index) => {
+                  console.log("item", item);
+                  return (
+                    <div>
+                      <div style={{ position: "absolute" }}>
+                        Kết quả: {item.tendv}
+                      </div>
+                      <div
+                        className="img"
+                        style={{
+                          // position: "absolute",
+                          // width: "100%",
+                          // height: "200px",
+                          // marginLeft: "80px",
+                          backgroundImage: `url(${item.image})`,
+                          // border: "1px solid red",
+                        }}
+                      ></div>
+                    </div>
+                  );
+                })}
+            </div>
+            {/* <div
               className=""
               style={{
                 fontSize: "20px",
@@ -145,33 +177,18 @@ class modalDoiMatKhau extends Component {
                   >
                     Trạng Thái
                   </span>
-                  {/* {this.props?.data?.trangthaikham == "Chưa khám" ? (
+             
+                  {this.props?.data?.trangthaikham == "Chưa khám" ? (
                     <div className="trangthai-chuakham">
                       <span>Chưa khám</span>
                     </div>
                   ) : (
                     <>
-                      {this.props?.data?.trangthaikham === "Đã khám" ? (
-                        <div className="trangthai-dakham">
-                          <span>Đã khám</span>
-                        </div>
-                      ) : (
-                        <div className="trangthai-chokham">
-                          <span>Chờ khám</span>
-                        </div>
-                      )}
-                    </>
-                  )} */}
-                  {this.props?.data?.trangthaikham == "Chưa khám" ? (
-                    <div className="trangthai-chuakham">
-                      <span>{this.props?.data?.trangthaikham}</span>
-                    </div>
-                  ) : (
-                    <>
-                      {this.props?.data?.trangthaikham == "Đã lập đơn thuốc" ? (
+                      {this.props?.data?.trangthaikham ==
+                      "Đã lập phiếu khám" ? (
                         <>
                           <div className="trangthai-dakham">
-                            <span>{this.props?.data?.trangthaikham}</span>
+                            <span>Đã lập phiếu khám</span>
                           </div>
                           <div
                             style={{
@@ -183,32 +200,20 @@ class modalDoiMatKhau extends Component {
                           >
                             Kết quả
                           </div>
-                          <>
-                            <ModalXemKetQua
-                              isOpen={this.state.openXemKetQua}
-                              toggleFromParent={this.handleOnOFF}
-                              id_dangky={this.props?.data?.id}
-                            />
-                          </>
                         </>
                       ) : (
                         <>
                           {this.props?.data?.trangthaikham ==
-                          "Đã lập phiếu khám" ? (
+                          "Đã lập đơn thuốc" ? (
                             <div className="trangthai-hoanthanh">
-                              <span>{this.props?.data?.trangthaikham}</span>
+                              <span>Đã lập đơn thuốc</span>
                             </div>
                           ) : null}
                         </>
                       )}
                     </>
                   )}
-                  {/* <div
-                    className="trangthai-chuakham"
-                    onClick={() => this.handleChiTiet()}
-                  >
-                    <span>Chưa khám</span>
-                  </div> */}
+                
                 </div>
                 <div className="trieuchung">
                   <span
@@ -404,7 +409,7 @@ class modalDoiMatKhau extends Component {
                   </span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </ModalBody>
         <ModalFooter>
@@ -437,4 +442,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(modalDoiMatKhau);
+export default connect(mapStateToProps, mapDispatchToProps)(modalXemKetQua);

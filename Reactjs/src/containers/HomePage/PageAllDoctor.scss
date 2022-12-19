@@ -1,21 +1,19 @@
 .container-pageAllDoctor {
     margin-top: 58px;
-    padding-left: 200px !important;
+    // padding-left: 200px !important; //CSSLong
 
     .head {
         height: 250px;
         width: 100%;
         background-color: #eff9fb;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
-
     }
 
     .body {
-        margin: 0 160px;
+        padding: 0 160px;
         display: flex;
-        width: 80%;
+        width: 100%;
         flex-wrap: wrap;
-
         .page-all-doctor {
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
             margin: 20px 50px;

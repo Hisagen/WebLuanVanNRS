@@ -15,8 +15,12 @@ import {
   getAllChuyenkhoaLichbacsikhamService,
   deleteLichbacsikhamService,
 } from "../../../services/lichbacsikhamService";
-
+import {
+  getNgayBacsiLichbacsikhamIdService,
+  countDangky,
+} from "../../../services/lichbacsikhamService";
 import { getPhongChuyenkhoaIdService } from "../../../services/phongService";
+import { getAllBenhnhanService } from "../../../services/benhnhanService";
 import { getIdBuoiService } from "../../../services/buoiService";
 import Paper from "@mui/material/Paper";
 import TestSchedule from "./testSchedule";
@@ -103,6 +107,20 @@ class ManageSchedule extends Component {
       test: "",
       openModal: false,
       idProps: "",
+      listBenhNhan: [],
+      selectedBN: "",
+
+      allDays: [],
+      allAvalableTime: [],
+      isOpenModalBooking: false,
+      isOpenModalBooking_DN: false,
+      dataScheduleTimeModal: {},
+      ngay: "",
+      active: "",
+      action: false,
+      time: "",
+      sang: [],
+      chieu: [],
     };
     this.currentDateChange = (currentDate1) => {
       this.setState({ currentDate1 });
@@ -114,7 +132,14 @@ class ManageSchedule extends Component {
   async componentDidMount() {
     this.props.fetchAllVienchucChuyenkhoaThankinh(this.state.idChuyenKhoa);
     this.props.fetchAllBuoi();
-    this.props.fetchAllPhongChuyenkhoaThankinh(this.state.idChuyenKhoa);
+    let allBN = await getAllBenhnhanService();
+    if (allBN && allBN.data) {
+      let dataSelect1 = this.buildDataInputSelect1(allBN.data);
+      this.setState({
+        listBenhNhan: dataSelect1,
+      });
+    }
+
     await this.props.fetchChuyenkhoaRedux();
 
     if (this.props.listChuyenkhoas) {
@@ -123,123 +148,14 @@ class ManageSchedule extends Component {
         this.props?.listChuyenkhoas[0].tenchuyenkhoa;
     }
     await this.hamdata();
+
+    let allday = this.getArrDays();
+    this.setState({
+      allDays: allday,
+    });
   }
 
-  // hamdata = async (id, ten) => {
-  //   this.setState(
-  //     {
-  //       selectedDoctor: {},
-  //       selectedPhong: {},
-  //       currentDate: "",
-  //     },
-  //     () => {
-  //       if (this.state.rangeTime && this.state.rangeTime.length > 0) {
-  //         this.state.rangeTime = this.state.rangeTime.map((item) => {
-  //           item.isSelected = false;
-  //           return item;
-  //         });
-  //         this.setState({
-  //           rangeTime: this.state.rangeTime,
-  //         });
-  //       }
-  //     }
-  //   );
-  //   if (ten !== undefined) {
-  //     this.state.actionChooseKhoa = ten;
-  //   }
-  //   if (id === undefined) {
-  //     let mang1 = await getAllChuyenkhoaLichbacsikhamService(
-  //       this.state.idChuyenKhoa
-  //     );
-  //     this.props.fetchAllVienchucChuyenkhoaThankinh(this.state.idChuyenKhoa);
-  //     this.props.fetchAllPhongChuyenkhoaThankinh(this.state.idChuyenKhoa);
-  //     let tam = [];
-  //     let tam2 = "";
-  //     let giobd = "";
-  //     let giokt = "";
-  //     mang1.data.map((item, index) => {
-  //       giobd = item.lichbacsikhambuoi.giobatdau;
-  //       giokt = item.lichbacsikhambuoi.gioketthuc;
-  //       this.setState({
-  //         data1: {
-  //           id: item.id,
-
-  //           // item.ngay.slice(0, 10)
-  //           startDate: moment(item.ngay).format("YYYY-MM-DD") + "T" + giobd,
-  //           endDate: moment(item.ngay).format("YYYY-MM-DD")+ + "T" + giokt,
-  //           title:
-  //             "Bác sĩ: " +
-  //             item.lichbacsikhamvienchuc.hoten.split(" ").slice(-1).join(" ") +
-  //             " - " +
-  //             "Phòng: " +
-  //             item.lichbacsikhamphong.tenphong.split(" ").slice(-1).join(" "),
-  //         },
-  //       });
-
-  //       tam.push(this.state.data1);
-  //     });
-  //     this.setState({
-  //       data: tam,
-  //       currentDate1: moment().format("YYYY-MM-DD"),
-  //     });
-  //   } else {
-  //     this.setState({
-  //       idChuyenKhoa: id,
-  //     });
-  //     let mang1 = await getAllChuyenkhoaLichbacsikhamService(id);
-  //     this.props.fetchAllVienchucChuyenkhoaThankinh(this.state.idChuyenKhoa);
-  //     this.props.fetchAllPhongChuyenkhoaThankinh(this.state.idChuyenKhoa);
-  //     let tam = [];
-  //     let tam2 = "";
-  //     let giobd = "";
-  //     let giokt = "";
-  //     mang1.data.map((item, index) => {
-  //       giobd = item.lichbacsikhambuoi.giobatdau;
-  //       giokt = item.lichbacsikhambuoi.gioketthuc;
-  //       this.setState({
-  //         data1: {
-  //           id: item.id,
-
-  //           // item.ngay.slice(0, 10)
-  //           startDate: moment(item.ngay).format("YYYY-MM-DD") + "T" + giobd,
-  //           endDate: moment(item.ngay).format("YYYY-MM-DD") + "T" + giokt,
-  //           title:
-  //             "Bác sĩ: " +
-  //             item.lichbacsikhamvienchuc.hoten.split(" ").slice(-1).join(" ") +
-  //             " - " +
-  //             "Phòng: " +
-  //             item.lichbacsikhamphong.tenphong.split(" ").slice(-1).join(" "),
-  //         },
-  //       });
-
-  //       tam.push(this.state.data1);
-  //     });
-  //     this.setState({
-  //       data: tam,
-  //       currentDate1: moment().format("YYYY-MM-DD"),
-  //     });
-  //   }
-  // };
-
   hamdata = async (id, ten) => {
-    this.setState(
-      {
-        selectedDoctor: {},
-        selectedPhong: {},
-        currentDate: "",
-      },
-      () => {
-        if (this.state.rangeTime && this.state.rangeTime.length > 0) {
-          this.state.rangeTime = this.state.rangeTime.map((item) => {
-            item.isSelected = false;
-            return item;
-          });
-          this.setState({
-            rangeTime: this.state.rangeTime,
-          });
-        }
-      }
-    );
     if (ten !== undefined) {
       this.state.actionChooseKhoa = ten;
     }
@@ -248,7 +164,6 @@ class ManageSchedule extends Component {
         this.state.idChuyenKhoa
       );
       this.props.fetchAllVienchucChuyenkhoaThankinh(this.state.idChuyenKhoa);
-      this.props.fetchAllPhongChuyenkhoaThankinh(this.state.idChuyenKhoa);
       let tam = [];
       let tam2 = "";
       let giobd = "";
@@ -290,7 +205,6 @@ class ManageSchedule extends Component {
       });
       let mang1 = await getAllChuyenkhoaLichbacsikhamService(id);
       this.props.fetchAllVienchucChuyenkhoaThankinh(this.state.idChuyenKhoa);
-      this.props.fetchAllPhongChuyenkhoaThankinh(this.state.idChuyenKhoa);
       let tam = [];
       let tam2 = "";
       let giobd = "";
@@ -327,26 +241,30 @@ class ManageSchedule extends Component {
     }
   };
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  getArrDays = () => {
+    let allDays = [];
+    for (let i = 0; i < 7; i++) {
+      let object = {};
+      if (i === 0) {
+        let ddMM = moment(new Date()).add(i, "days").format("DD/MM");
+        let today = `Today - ${ddMM}`;
+        object.label = today;
+      } else {
+        object.label = moment(new Date())
+          .add(i, "days")
+          .locale("en")
+          .format("ddd - DD/MM");
+      }
+      object.value = moment(new Date()).add(i, "days").startOf("day").valueOf();
+      allDays.push(object);
+    }
+    return allDays;
+  };
+  async componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.allDoctors !== this.props.allDoctors) {
       let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
       this.setState({
         listDoctors: dataSelect,
-      });
-    }
-    if (prevProps.allPhongs !== this.props.allPhongs) {
-      let dataSelect1 = this.buildDataInputSelect1(this.props.allPhongs);
-      this.setState({
-        listPhongs: dataSelect1,
-      });
-    }
-    if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
-      let data = this.props.allScheduleTime;
-      if (data && data.length > 0) {
-        data.map((item) => ({ ...item, isSelected: false }));
-      }
-      this.setState({
-        rangeTime: data,
       });
     }
   }
@@ -375,7 +293,7 @@ class ManageSchedule extends Component {
     if (inputData && inputData.length > 0) {
       inputData.map((item, index) => {
         let object = {};
-        object.label = item.tenphong;
+        object.label = item.hoten;
         object.value = item.id;
         result.push(object);
       });
@@ -384,7 +302,7 @@ class ManageSchedule extends Component {
   };
 
   handleChangeSelect1 = async (selectedOption) => {
-    this.setState({ selectedPhong: selectedOption });
+    this.setState({ selectedBN: selectedOption });
   };
 
   handleOnchangeDatePicker = async (date) => {
@@ -403,34 +321,6 @@ class ManageSchedule extends Component {
       selectedDoctor.value,
       selectedPhong.value
     );
-  };
-
-  handleClickBtnTime = (time) => {
-    let { rangeTime } = this.state;
-    if (rangeTime && rangeTime.length > 0) {
-      rangeTime = rangeTime.map((item) => {
-        if (item.id == time.id) item.isSelected = !item.isSelected;
-        return item;
-      });
-      this.setState({
-        rangeTime: rangeTime,
-      });
-    }
-  };
-
-  handleClickBtnBuoi = (time) => {
-    let { rangeTime } = this.state;
-    if (time === "sang") {
-      this.setState({
-        time: time,
-        actionSang: !this.state.actionSang,
-      });
-    } else {
-      this.setState({
-        time: time,
-        actionChieu: !this.state.actionChieu,
-      });
-    }
   };
 
   handleSaveSchedule = async (id) => {
@@ -551,6 +441,112 @@ class ManageSchedule extends Component {
       check = false;
     }
   };
+
+  getNgay = (a) => {
+    let allDays = "";
+    let object = {};
+    let labelVi = moment(new Date()).add(a, "days").format("dddd - DD/MM");
+    object.label = this.capitalizeFirstLetter(labelVi);
+    object.value = moment(new Date()).add(a, "days").startOf("day").valueOf();
+    allDays = object;
+    return allDays;
+  };
+  handleOnChangeSelect = async (event) => {
+    if (this.props.doctorIdFromParent && this.props.doctorIdFromParent !== -1) {
+      let doctorId = this.props.doctorIdFromParent;
+      let date = event.target.value;
+
+      let date1 = event.target.selectedIndex;
+
+      let date2 = this.getNgay(date1);
+
+      this.setState(
+        {
+          ngay: date2.label,
+        },
+        () => {
+          this.props.ngay(this.state.ngay);
+          this.props.handleActionFromParent(false);
+        }
+      );
+      let res = await getNgayBacsiLichbacsikhamIdService(doctorId, date);
+      if (res.errCode === 0 && res.data.length !== 0) {
+        let total = res.data[res.data.length - 1];
+        let tempsang = [];
+        let tempchieu = [];
+        if (total && total.length === 2) {
+          if (total[0].length === 8) {
+            tempchieu = total[0].concat(tempchieu);
+            for (let i = 0; i < tempchieu.length; i++) {
+              let test = await countDangky(tempchieu[i].id);
+              tempchieu[i].soluongdangky = test;
+            }
+            this.setState({
+              chieu: tempchieu,
+            });
+          } else {
+            tempsang = total[0].concat(tempsang);
+            for (let i = 0; i < tempsang.length; i++) {
+              let test = await countDangky(tempsang[i].id);
+              tempsang[i].soluongdangky = test;
+            }
+            this.setState({
+              sang: tempsang,
+            });
+          }
+          if (total[1].length === 9) {
+            tempsang = total[1].concat(tempsang);
+            for (let i = 0; i < tempsang.length; i++) {
+              let test = await countDangky(tempsang[i].id);
+              tempsang[i].soluongdangky = test;
+            }
+            this.setState({
+              sang: tempsang,
+            });
+          } else {
+            tempchieu = total[1].concat(tempchieu);
+            for (let i = 0; i < tempchieu.length; i++) {
+              let test = await countDangky(tempchieu[i].id);
+              tempchieu[i].soluongdangky = test;
+            }
+            this.setState({
+              chieu: tempchieu,
+            });
+          }
+        } else if (total && total.length === 1) {
+          let tempsang = [];
+          let tempchieu = [];
+          if (total[0].length === 8) {
+            tempchieu = total[0].concat(tempchieu);
+            for (let i = 0; i < tempchieu.length; i++) {
+              let test = await countDangky(tempchieu[i].id);
+              tempchieu[i].soluongdangky = test;
+            }
+            this.setState({
+              chieu: tempchieu,
+              sang: [],
+            });
+          } else {
+            tempsang = total[0].concat(tempsang);
+            for (let i = 0; i < tempsang.length; i++) {
+              let test = await countDangky(tempsang[i].id);
+              tempsang[i].soluongdangky = test;
+            }
+            this.setState({
+              sang: tempsang,
+              chieu: [],
+            });
+          }
+        }
+      } else {
+        this.setState({
+          sang: [],
+          chieu: [],
+        });
+      }
+    }
+  };
+
   render() {
     let { rangeTime, ghichu, actionChooseKhoa } = this.state;
     let { language } = this.props;
@@ -686,58 +682,170 @@ class ManageSchedule extends Component {
                     </div>
 
                     <div className="col-6 form-group">
-                      <label> Chọn Phòng</label>
+                      <label> Chọn Bệnh Nhân</label>
                       <Select
-                        value={this.state.selectedPhong}
+                        value={this.state.selectedBN}
                         onChange={this.handleChangeSelect1}
-                        options={this.state.listPhongs}
+                        options={this.state.listBenhNhan}
                       />
                     </div>
 
-                    <div className="col-6 form-group">
-                      <label>
-                        <FormattedMessage id="manage-schedule.choose-date" />
-                      </label>
-                      <DataPicker
-                        onChange={this.handleOnchangeDatePicker}
-                        className="form-control"
-                        value={this.state.currentDate}
-                        minDate={yesterday}
-                        disabledValue={disabled}
-                      />
+                    <div className="all-schedule">
+                      <select
+                        onChange={(event) => this.handleOnChangeSelect(event)}
+                      >
+                        {this.state.allDays &&
+                          this.state.allDays.length > 0 &&
+                          this.state.allDays.map((item, index) => {
+                            return (
+                              <option value={item.value} key={item.id}>
+                                {item.label}
+                              </option>
+                            );
+                          })}
+                      </select>
                     </div>
+                  </div>
+                  <div className="time-content">
+                    {this.state.sang &&
+                    this.state.sang.length === 0 &&
+                    this.state.chieu &&
+                    this.state.chieu.length === 0 ? (
+                      <div className="no-schedule">
+                        <FormattedMessage id="patient.detail-doctor.no-schedule" />{" "}
+                      </div>
+                    ) : null}
+                    {this.state.sang && this.state.sang.length > 0 ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          fontSize: "20px",
+                          marginBottom: "20px",
+                          fontWeight: "600",
+                          background: "#64b5f6",
+                          color: "white",
+                        }}
+                      >
+                        <span>Buổi sáng</span>
+                      </div>
+                    ) : null}
+                    {this.state.sang && this.state.sang.length > 0 ? (
+                      <>
+                        <div className="time-content-button">
+                          {this.state.sang.map((item, index) => {
+                            let timeDisplay = item.khunggio;
+                            if (this.state.active === item?.id) {
+                              return (
+                                <div className="btn">
+                                  <div
+                                    key={index}
+                                    className="btn-time-choose"
+                                    // onClick={() => this.handleClickScheduleTime(item)}
+                                    onClick={() =>
+                                      this.handleClickScheduleChoose(item)
+                                    }
+                                  >
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            } else if (item.soluongdangky >= 2) {
+                              return (
+                                <div className="btn" title="Hết chỗ">
+                                  <div
+                                    className="btn-time-block"
+                                    style={{ cursor: "not-allowed" }}
+                                  >
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            } else {
+                              return (
+                                <div className="btn">
+                                  <div
+                                    key={index}
+                                    className="btn-time"
+                                    // onClick={() => this.handleClickScheduleTime(item)}
+                                    onClick={() =>
+                                      this.handleClickSchedule(item)
+                                    }
+                                  >
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                        </div>
+                      </>
+                    ) : null}
 
-                    <div className="col-12 pick-hour-container">
-                      {rangeTime &&
-                        rangeTime.length > 0 &&
-                        rangeTime.map((item, index) => {
-                          if (item.isSelected === true) {
-                            return (
-                              <>
-                                <button
-                                  className={"btn btn-schedule active"}
-                                  key={index}
-                                  onClick={() => this.handleClickBtnTime(item)}
-                                >
-                                  {item.tenbuoi}
-                                </button>
-                              </>
-                            );
-                          } else {
-                            return (
-                              <>
-                                <button
-                                  className={"btn btn-schedule"}
-                                  key={index}
-                                  onClick={() => this.handleClickBtnTime(item)}
-                                >
-                                  {item.tenbuoi}
-                                </button>
-                              </>
-                            );
-                          }
-                        })}
-                    </div>
+                    {this.state.chieu && this.state.chieu.length > 0 ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          fontSize: "20px",
+                          marginBottom: "20px",
+                          marginTop: "50px",
+                          fontWeight: "600",
+                          background: "#64b5f6",
+                          color: "white",
+                        }}
+                      >
+                        Buổi chiều
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
+                    {this.state.chieu && this.state.chieu.length > 0 ? (
+                      <>
+                        <div className="time-content-button">
+                          {this.state.chieu.map((item, index) => {
+                            let timeDisplay = item.khunggio;
+                            if (this.state.active === item?.id) {
+                              return (
+                                <div className="btn">
+                                  <div
+                                    key={index}
+                                    className="btn-time-choose"
+                                    // onClick={() => this.handleClickScheduleTime(item)}
+                                    onClick={() =>
+                                      this.handleClickScheduleChoose(item)
+                                    }
+                                  >
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            } else if (item.soluongdangky >= 2) {
+                              return (
+                                <div className="btn" title="Hết chỗ">
+                                  <div className="btn-time-block">
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            } else {
+                              return (
+                                <div className="btn">
+                                  <div
+                                    key={index}
+                                    className="btn-time"
+                                    // onClick={() => this.handleClickScheduleTime(item)}
+                                    onClick={() =>
+                                      this.handleClickSchedule(item)
+                                    }
+                                  >
+                                    <span>{timeDisplay}</span>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                        </div>
+                      </>
+                    ) : null}
                   </div>
                   <div className="col-12">
                     {/* lưu */}
@@ -751,7 +859,7 @@ class ManageSchedule extends Component {
                     </button>
                   </div>
 
-                  <TestSchedule
+                  {/* <TestSchedule
                     handleOnclickSchedule={this.handleOnclickSchedule}
                     data={this.state.data}
                   />
@@ -761,7 +869,7 @@ class ManageSchedule extends Component {
                     toggleFromParent={this.toggleFromParent}
                     idProps={this.state.idProps}
                     changed={this.handleChange}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
@@ -779,8 +887,6 @@ const mapStateToProps = (state) => {
     allDoctors: state.admin.vienchucchuyenkhoathankinhs,
     allScheduleTime: state.admin.buois,
     allPhongs: state.admin.phongchuyenkhoathankinhs,
-
-    //
     listChuyenkhoas: state.admin.chuyenkhoas,
   };
 };

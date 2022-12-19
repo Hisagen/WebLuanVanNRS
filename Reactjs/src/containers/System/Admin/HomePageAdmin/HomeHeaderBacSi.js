@@ -30,7 +30,7 @@ import "./App.css";
 import NhasxManage from "../NhasxManage";
 import { ThreeSixtySharp } from "@material-ui/icons";
 import { border, style } from "@mui/system";
-class HomeHeaderAdmin extends Component {
+class HomeHeaderBacSi extends Component {
   constructor() {
     super();
 
@@ -62,7 +62,6 @@ class HomeHeaderAdmin extends Component {
       }
     );
   };
-
   handleLink = (name) => {
     this.setState({
       link: name,
@@ -93,7 +92,7 @@ class HomeHeaderAdmin extends Component {
                 </div>
                 <hr />
                 <div className="link">
-                  {link === "ManageSchedule" ? (
+                  {link === "TinhthanhManage" ? (
                     <Link
                       to={"/system/ManageSchedule"}
                       style={{ textDecoration: "none", color: "black" }}
@@ -102,7 +101,7 @@ class HomeHeaderAdmin extends Component {
                         onClick={() => this.handleLink("TinhthanhManage")}
                         className="active"
                       >
-                        Quản lý Lịch
+                        Xem lịch khám
                       </div>
                     </Link>
                   ) : (
@@ -111,33 +110,7 @@ class HomeHeaderAdmin extends Component {
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <div onClick={() => this.handleLink("TinhthanhManage")}>
-                        Quản lý Lịch
-                      </div>
-                    </Link>
-                  )}
-
-                  {link === "VienChucRedux" ? (
-                    <Link
-                      to={"/system/DatLich"}
-                      style={{
-                        textDecoration: "none",
-                        color: "black",
-                      }}
-                    >
-                      <div
-                        onClick={() => this.handleLink("VienChucRedux")}
-                        className="active"
-                      >
-                        Đặt lịch
-                      </div>
-                    </Link>
-                  ) : (
-                    <Link
-                      to={"/system/DatLich"}
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
-                      <div onClick={() => this.handleLink("VienChucRedux")}>
-                        Đặt lịch
+                        Xem lịch khám
                       </div>
                     </Link>
                   )}
@@ -187,5 +160,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HomeHeaderAdmin)
+  connect(mapStateToProps, mapDispatchToProps)(HomeHeaderBacSi)
 );

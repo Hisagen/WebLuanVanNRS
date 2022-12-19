@@ -13,7 +13,7 @@ var Sequelize = require("sequelize");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 import multer from "multer";
 
-const sequelize = new Sequelize("BV_Long", "sa", "123456", {
+const sequelize = new Sequelize("lancuoi", "sa", "123456", {
   host: "localhost",
   dialect: "mssql",
   logging: false,

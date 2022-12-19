@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         as: "giadichvu_dichvu",
       });
+
+      dichvus.hasMany(models.hinhanhchidinhs, {
+        foreignKey: "id",
+        as: "hinhanh_dichvu",
+      });
     }
   }
   dichvus.init(

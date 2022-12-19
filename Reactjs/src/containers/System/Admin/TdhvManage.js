@@ -132,6 +132,9 @@ class TdhvManage extends Component {
       newsPerPage: event.target.value,
     });
   };
+  handleRefest = () => {
+    window.location.reload(true);
+  };
   render() {
     let arrTdhv = this.state.arrTdhv;
     const currentPage = this.state.currentPage;
@@ -192,7 +195,10 @@ class TdhvManage extends Component {
             onClick={() => this.handleAddNewTdhv()}
           ></i>
           {/* <i className="fas fa-copy" onClick={() => this.handleEditTdhv(item)}></i> */}
-          <i className="fas fa-sync-alt"></i>
+          <i
+            className="fas fa-sync-alt"
+            onClick={() => this.handleRefest()}
+          ></i>
         </div>
         <div className="table-phong mt-3 mx-1">
           <table id="customers-sin">

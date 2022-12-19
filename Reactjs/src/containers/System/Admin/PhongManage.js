@@ -132,6 +132,9 @@ class PhongManage extends Component {
       newsPerPage: event.target.value,
     });
   };
+  handleRefest = () => {
+    window.location.reload(true);
+  };
   render() {
     let arrPhong = this.state.arrPhong;
     const currentPage = this.state.currentPage;
@@ -192,7 +195,10 @@ class PhongManage extends Component {
             onClick={() => this.handleAddNewPhong()}
           ></i>
           {/* <i className="fas fa-copy" onClick={() => this.handleEditPhong(item)}></i> */}
-          <i className="fas fa-sync-alt"></i>
+          <i
+            className="fas fa-sync-alt"
+            onClick={() => this.handleRefest()}
+          ></i>
         </div>
         <div className="table-phong mt-3 mx-1">
           <table id="customers-sin">

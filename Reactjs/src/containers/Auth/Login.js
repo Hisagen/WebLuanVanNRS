@@ -70,10 +70,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-background">
+      <div className="login-background-system">
         <div className="login-container">
           <div className="login-content row">
-            <div className="col-12 text-login">Login</div>
+            <div className="col-12 text-login">Login System</div>
             <div className="col-12 form-group login-input">
               <label>Username:</label>
               <input
@@ -116,19 +116,19 @@ class Login extends Component {
                   this.handleLogin();
                 }}
               >
-                Input
+                Login
               </button>
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <span className="forgot-password">Forgot your password?</span>
-            </div>
-            <div className="col-12 text-center mt-3">
+            </div> */}
+            {/* <div className="col-12 text-center mt-3">
               <span className="text-orther-login">Or Login with</span>
             </div>
             <div className="col-12 social-login">
               <i className="fab fa-google-plus-g google"></i>
               <i className="fab fa-facebook-f facebook"></i>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

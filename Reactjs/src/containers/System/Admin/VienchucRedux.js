@@ -352,7 +352,9 @@ class VienchucRedux extends Component {
       newsPerPage: event.target.value,
     });
   };
-
+  handleRefest = () => {
+    window.location.reload(true);
+  };
   render() {
     let chuyenkhoas = this.state.chuyenkhoaArr;
     let arrVienchucs = this.state.vienchucRedux;
@@ -657,8 +659,11 @@ class VienchucRedux extends Component {
                   </button>
                 </div>
                 <div className="btn-icon">
-                  <i className="fas fa-copy"></i>
-                  <i className="fas fa-sync-alt"></i>
+                  {/* <i className="fas fa-copy"></i> */}
+                  <i
+                    className="fas fa-sync-alt"
+                    onClick={() => this.handleRefest()}
+                  ></i>
                 </div>
               </div>
               {/* </form> */}

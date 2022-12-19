@@ -80,7 +80,7 @@ class ModaleditTang extends Component {
     let isValid = this.checkValideInput();
     if (isValid === true) {
       this.props.editTang(this.state);
-      toast.success("Sửa Phòng thành công!");
+      toast.success("Sửa Tầng thành công!");
     }
   };
   handleReset = () => {
@@ -107,13 +107,13 @@ class ModaleditTang extends Component {
             this.toggle();
           }}
         >
-          Sửa Phòng
+          Sửa Tầng
         </ModalHeader>
         <ModalBody>
           <div className="modal-tangEdit-body">
             <div className="input-container">
               <label>
-                <span className="sao">*</span> Mã phòng:
+                <span className="sao">*</span> Mã tầng:
               </label>
               <br />
               <input type="text" value={this.state.id} disabled></input>
@@ -133,7 +133,7 @@ class ModaleditTang extends Component {
             </div> */}
             <div className="input-container">
               <label>
-                <span className="sao">*</span> Tên Phòng
+                <span className="sao">*</span> Tên tầng
               </label>
               <br />
               <input
@@ -181,7 +181,7 @@ class ModaleditTang extends Component {
                 this.handleSaveTang();
               }}
             >
-              Sửa phòng
+              Sửa tầng
             </Button>
           ) : (
             <Button
@@ -192,7 +192,7 @@ class ModaleditTang extends Component {
               }}
               disabled
             >
-              Sửa phòng
+              Sửa tầng
             </Button>
           )}
 

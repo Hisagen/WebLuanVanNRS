@@ -187,6 +187,10 @@ class ChuyenkhoaRedux extends Component {
       newsPerPage: event.target.value,
     });
   };
+
+  handleRefest = () => {
+    window.location.reload(true);
+  };
   render() {
     let language = this.props.language;
     let arrChuyenkhoas = this.state.ChuyenkhoaRedux;
@@ -226,9 +230,7 @@ class ChuyenkhoaRedux extends Component {
         <div className="user-redux-body">
           <div className="container">
             <div className="row">
-              <div className="col-12">
-                <FormattedMessage id="manage-vienchuc.add" />
-              </div>
+              <div className="col-12">Thêm chuyên khoa</div>
 
               <div className="col-3">
                 <label>Tên chuyên khoa</label>
@@ -289,11 +291,19 @@ class ChuyenkhoaRedux extends Component {
                   onClick={() => this.handleSaveChuyenkhoa()}
                 >
                   {this.state.action === CRUD_ACTIONS.EDIT ? (
-                    <FormattedMessage id="manage-vienchuc.edit" />
+                    <>Sửa chuyên khoa</>
                   ) : (
-                    <FormattedMessage id="manage-vienchuc.save" />
+                    <>Lưu chuyên khoa</>
                   )}
                 </button>
+              </div>
+              <div className="btn-icon">
+                {/* <i className="fas fa-copy"></i> */}
+                <i
+                  className="fas fa-sync-alt"
+                  onClick={() => this.handleRefest()}
+                  style={{ marginRight: "30px" }}
+                ></i>
               </div>
               <div className="table-phong">
                 <table id="customers-sin">

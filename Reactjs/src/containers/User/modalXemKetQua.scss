@@ -1,0 +1,150 @@
+.modal-chitietKQ-container {
+  // z-index: 1000;
+  width: 1200px !important;
+  position: relative;
+  text-align: center;
+
+  .close {
+    background: linear-gradient(79.98deg, rgb(76, 196, 139) 26.18%, rgb(81, 180, 170) 99.22%);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+
+    &:hover {
+      animation: heartBeat;
+      animation-duration: 2s;
+    }
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50px;
+    margin-left: 10px;
+  }
+
+  .modal-body {
+    .chitietKQ-container {
+      height: 500px;
+      .img{
+        margin-left: 450px;
+        margin-top: 20px;
+        width: 300px;
+        height: 150px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .btn-chitietlsk {
+        background: linear-gradient(135deg, #22c1c3 0%, #fdbb2d 100%);
+      }
+    }
+
+    .content {
+      height: 90%;
+
+      .tt-benhnhan {
+        margin-top: 10px;
+        position: absolute;
+        height: 26%;
+        width: 94%;
+        border-radius: 15px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+
+        .trangthai {
+          .trangthai-chuakham {
+            border: 1px solid red;
+            position: absolute;
+            right: 150px;
+            margin-top: 45px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(237, 54, 3);
+            background-color: rgb(227, 163, 145);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+            font-size: 12px;
+          }
+
+          .trangthai-dakham {
+            position: absolute;
+            right: 150px;
+            margin-top: 45px;
+            margin-right: 10px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(79, 106, 79);
+            background-color: rgb(234, 226, 125);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+          }
+
+          .trangthai-hoanthanh {
+            position: absolute;
+            right: 150px;
+            margin-top: 45px;
+            margin-right: 5px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(175, 170, 98);
+            background-color: rgb(62, 241, 62);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+          }
+        }
+      }
+
+      .tt-bacsi {
+        margin-top: 165px;
+        position: absolute;
+        height: 26%;
+        width: 94%;
+        border-radius: 15px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+
+
+      }
+
+      .thanhtoan {
+        margin-top: 320px;
+        position: absolute;
+        height: 26%;
+        width: 94%;
+        border-radius: 15px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+
+        .trangthai {
+          .trangthai-chuakham {
+            border: 1px solid red;
+            position: absolute;
+            right: 150px;
+            margin-top: 45px;
+            padding: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: rgb(237, 54, 3);
+            background-color: rgb(227, 163, 145);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.btn-dangnhap {
+  width: 400px;
+  margin-right: 35px;
+  background: linear-gradient(79.98deg, rgb(76, 196, 139) 26.18%, rgb(68, 161, 152) 99.22%);
+  height: 40px;
+
+  &:hover {
+    background: linear-gradient(79.98deg, rgb(55, 144, 103) 26.18%, rgb(93, 196, 186) 99.22%);
+    display: inline-block;
+    animation: pulse;
+    animation-duration: 2s;
+
+
+  }
+}

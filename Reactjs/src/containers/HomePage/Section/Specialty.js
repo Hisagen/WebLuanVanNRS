@@ -24,7 +24,7 @@ class Specialty extends Component {
     if (res && res.errCode == 0) {
       this.setState({
         dataSpeciatly: res.data ? res.data : [],
-        ChuyenKhoaST: res.data[0].id,
+        ChuyenKhoaST: res.data[0]?.id,
       });
     }
   }
@@ -83,8 +83,9 @@ class Specialty extends Component {
                       <div className={`color-${index + 1}`}>
                         <div className="icon">
                           <img
-                            src={`http://localhost:3002/Image/icon/icon-${index + 1
-                              }.png`}
+                            src={`http://localhost:3002/Image/icon/icon-${
+                              index + 1
+                            }.png`}
                             style={{
                               width: "95px",
                               height: "70px",

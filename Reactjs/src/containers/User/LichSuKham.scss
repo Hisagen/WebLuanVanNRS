@@ -4,7 +4,7 @@
 
     .table {
 
-        margin-left: 200px;
+        margin-left: 200px; //CSSLong
         margin-top: 50px;
         width: 666px;
         height: 114px;
@@ -22,7 +22,8 @@
 
         .trangthai-dakham {
             position: absolute;
-            right: 670px;
+            right: 490px; 
+            // right: 670px; //CSSLong
             margin-top: 45px;
             margin-right: 10px;
             padding: 5px;
@@ -35,7 +36,8 @@
 
         .trangthai-hoanthanh {
             position: absolute;
-            right: 680px;
+            // right: 680px; //CSSLong
+            right: 500px;
             margin-top: 45px;
             margin-right: 5px;
             padding: 5px;
@@ -48,7 +50,8 @@
 
         .trangthai-chuakham {
             position: absolute;
-            right: 700px;
+            // right: 700px; //CSSLong
+            right: 520px; 
             margin-top: 45px;
             padding: 5px;
             border-radius: 20px;

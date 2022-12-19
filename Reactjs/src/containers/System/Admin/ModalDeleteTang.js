@@ -84,7 +84,7 @@ class ModaleditTang extends Component {
       if (res && res.errCode === 0) {
         await this.getAllTangFromReact();
         // this.props.deleteTang(this.state);
-        toast.success("Xóa Phòng thành công!");
+        toast.success("Xóa Tầng thành công!");
         this.props.deleteTang(this.state.isOpenDeleteTang);
       } else {
         alert(res.errMessage);
@@ -97,7 +97,7 @@ class ModaleditTang extends Component {
     let isValid = this.checkValideInput();
     if (isValid === true) {
       this.props.deleteTang(this.state.isOpenDeleteTang);
-      toast.success("Sửa Phòng thành công!");
+      toast.success("Sửa Tầng thành công!");
     }
   };
   getAllTangFromReact = async () => {
@@ -130,11 +130,11 @@ class ModaleditTang extends Component {
             this.toggle();
           }}
         >
-          Xóa Phòng
+          Xóa Tầng
         </ModalHeader>
         <ModalBody>
           <div className="modal-tangEdit-body">
-            Bạn có muốn xóa phòng [{id}] ra khỏi danh sách?
+            Bạn có muốn xóa tầng [{id}] ra khỏi danh sách?
           </div>
         </ModalBody>
         <ModalFooter>

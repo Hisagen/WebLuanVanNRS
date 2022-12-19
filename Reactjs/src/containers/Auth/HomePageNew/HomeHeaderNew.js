@@ -275,7 +275,7 @@ class HomeHeaderNew extends Component {
                       <Link to={"/information"} style={{ color: "black" }}>
                         <div
                           style={{ marginTop: "15px" }}
-                        // onClick={this.handleChuyenTrang("infomation")}
+                          // onClick={this.handleChuyenTrang("infomation")}
                         >
                           <i class="far fa-user"></i> Thông tin cá nhân
                         </div>
@@ -387,7 +387,14 @@ class HomeHeaderNew extends Component {
           <div></div>
         )}
         {this.props.isShow === true ? (
-          <div className="head" style={{ paddingLeft: "200px" }}>
+          <div
+            className="head"
+            style={
+              {
+                // paddingLeft: "200px" //CSSLong
+              }
+            }
+          >
             <span
               style={{
                 color: "#00ba99",

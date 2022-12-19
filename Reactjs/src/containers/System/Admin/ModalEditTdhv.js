@@ -94,13 +94,13 @@ class ModalEditTdhv extends Component {
         </ModalBody>
         <ModalFooter>
           <Button
-            className="px-3"
+            className="btn-save"
             color="primary"
             onClick={() => {
               this.handleSaveTdhv();
             }}
           >
-            Sửa Trình Độ Học Vấn
+            Sửa TĐHV
           </Button>
           <Button
             className="px-3"

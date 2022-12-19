@@ -184,6 +184,7 @@ class DoctorSchedule extends Component {
     }
     return allDays;
   };
+
   getNgay = (a) => {
     let allDays = "";
     let object = {};
@@ -213,6 +214,7 @@ class DoctorSchedule extends Component {
         }
       );
       let res = await getNgayBacsiLichbacsikhamIdService(doctorId, date);
+      console.log("ressssssssssssss", res);
       if (res.errCode === 0 && res.data.length !== 0) {
         let total = res.data[res.data.length - 1];
         let tempsang = [];
@@ -383,57 +385,6 @@ class DoctorSchedule extends Component {
               </i>
             </div>
             <div className="time-content">
-              {/* {allAvalableTime && allAvalableTime.length > 0 ? (
-                <>
-                  <div className="time-content-button">
-                    {allAvalableTime.map((item, index) => {
-                      let timeDisplay = item.khunggio;
-                      if (this.state.active === item?.id) {
-                        return (
-                          <div className="btn">
-                            <div
-                              key={index}
-                              className="btn-time-choose"
-                              // onClick={() => this.handleClickScheduleTime(item)}
-                              onClick={() =>
-                                this.handleClickScheduleChoose(item)
-                              }
-                            >
-                              <span>{timeDisplay}</span>
-                            </div>
-                          </div>
-                        );
-                      } else if (item.soluongdangky >= 2) {
-                        return (
-                          <div className="btn" title="Hết chỗ">
-                            <div className="btn-time-block">
-                              <span>{timeDisplay}</span>
-                            </div>
-                          </div>
-                        );
-                      } else {
-                        return (
-                          <div className="btn">
-                            <div
-                              key={index}
-                              className="btn-time"
-                              // onClick={() => this.handleClickScheduleTime(item)}
-                              onClick={() => this.handleClickSchedule(item)}
-                            >
-                              <span>{timeDisplay}</span>
-                            </div>
-                          </div>
-                        );
-                      }
-                    })}
-                  </div>
-                </>
-              ) : (
-                <div className="no-schedule">
-                  <FormattedMessage id="patient.detail-doctor.no-schedule" />{" "}
-                </div>
-              )} */}
-
               {this.state.sang &&
               this.state.sang.length === 0 &&
               this.state.chieu &&

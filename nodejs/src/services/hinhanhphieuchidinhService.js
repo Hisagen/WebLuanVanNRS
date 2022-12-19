@@ -17,16 +17,24 @@ let getHinhAnhPhieuChiDinh = (id_dangky) => {
               },
             ],
           },
+
+          { model: db.dichvus, as: "hinhanh_dichvu" },
         ],
         // raw: true,
         // nest: true,
       });
       let array = [];
+      let array2 = [];
+      console.log("================> id", image?.phieuchidinhs?.id);
       if (image && image.length > 0) {
         image.map((item) => {
           if (item.hinhanhpcd_phieuchidinh != null) {
-            console.log("có");
-            array.push(item);
+            let obj = {};
+            (obj.tendv = item.hinhanh_dichvu.tendichvu),
+              (obj.image =
+                "http://localhost:3002/Image/ChiDinh/" + item.imageName);
+            array.push(obj);
+            array2.push(item);
           }
         });
       }
@@ -34,6 +42,7 @@ let getHinhAnhPhieuChiDinh = (id_dangky) => {
       resolve({
         errCode: 0,
         data: array,
+        data2: array2,
       });
     } else {
       resolve({

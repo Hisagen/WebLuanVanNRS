@@ -23,7 +23,9 @@ class modalDoiMatKhau extends Component {
   }
 
   async componentDidMount() {
+    console.log("đầu tiên");
     if (this.props.benhnhanInfo) {
+      console.log("info", this.props.benhnhanInfo);
       let { benhnhan } = this.props.benhnhanInfo;
       if (benhnhan?.id) {
         let thongtin = await getIdBenhnhanService(benhnhan?.id);
@@ -47,6 +49,7 @@ class modalDoiMatKhau extends Component {
   };
   handleDoi = async () => {
     if (this.state.pass1 !== this.state.passCurrent) {
+      console.log("this.state.passCurrent", this.state.passCurrent);
       alert("mật khẩu không đúng!");
     } else if (this.state.pass2 !== this.state.pass3) {
       alert("mật khẩu mới không khớp!");
@@ -61,7 +64,7 @@ class modalDoiMatKhau extends Component {
       if (res.errCode === 0) {
         this.props.processBNLogout();
         // window.location.href = "/login";
-        toast(
+        toast.success(
           "Mật khẩu đã được thay đổi Vui Lòng Đăng nhập lại với mật khẩu mới!"
         );
         setTimeout(() => {

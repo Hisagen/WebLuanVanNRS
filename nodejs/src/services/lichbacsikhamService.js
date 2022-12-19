@@ -342,6 +342,61 @@ let getLichbacsikhamIdService = (id) => {
 let editLichbacsikhamService = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
+      let scheduleSang = [
+        {
+          khunggio: "07:00-7:30",
+        },
+        {
+          khunggio: "07:30-8:00",
+        },
+        {
+          khunggio: "08:00-8:30",
+        },
+        {
+          khunggio: "08:30-9:00",
+        },
+        {
+          khunggio: "09:00-9:30",
+        },
+        {
+          khunggio: "09:30-10:00",
+        },
+        {
+          khunggio: "10:00-10:30",
+        },
+        {
+          khunggio: "10:30-11:00",
+        },
+        {
+          khunggio: "11:00-11:30",
+        },
+      ];
+      let scheduleChieu = [
+        {
+          khunggio: "13:00-13:30",
+        },
+        {
+          khunggio: "13:30-14:00",
+        },
+        {
+          khunggio: "14:00-14:30",
+        },
+        {
+          khunggio: "14:30-15:00",
+        },
+        {
+          khunggio: "15:00-15:30",
+        },
+        {
+          khunggio: "15:30-16:00",
+        },
+        {
+          khunggio: "16:00-16:30",
+        },
+        {
+          khunggio: "16:30-17:00",
+        },
+      ];
       if (!data.id) {
         resolve({
           errCode: 2,
@@ -391,6 +446,24 @@ let editLichbacsikhamService = (data) => {
             (lichbacsikham.id_phong = data.id_phong),
             (lichbacsikham.ngay = data.ngay),
             (lichbacsikham.id_vienchuc = data.id_vienchuc);
+          await db.lichkhams.destroy({
+            where: { id_lichbacsikham: data.id },
+          });
+          if (data.id_buoi === 1) {
+            scheduleSang.map(async (item, index) => {
+              await db.lichkhams.create({
+                id_lichbacsikham: data.id,
+                khunggio: scheduleSang[index].khunggio,
+              });
+            });
+          } else {
+            scheduleChieu.map(async (item, index) => {
+              await db.lichkhams.create({
+                id_lichbacsikham: data.id,
+                khunggio: scheduleChieu[index].khunggio,
+              });
+            });
+          }
           await lichbacsikham.save();
 
           resolve({

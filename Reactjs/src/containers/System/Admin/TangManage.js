@@ -132,6 +132,10 @@ class TangManage extends Component {
       newsPerPage: event.target.value,
     });
   };
+
+  handleRefest = () => {
+    window.location.reload(true);
+  };
   render() {
     let arrTang = this.state.arrTang;
     const currentPage = this.state.currentPage;
@@ -192,7 +196,10 @@ class TangManage extends Component {
             onClick={() => this.handleAddNewTang()}
           ></i>
           {/* <i className="fas fa-copy" onClick={() => this.handleEditTang(item)}></i> */}
-          <i className="fas fa-sync-alt"></i>
+          <i
+            className="fas fa-sync-alt"
+            onClick={() => this.handleRefest()}
+          ></i>
         </div>
         <div className="table-tang mt-3 mx-1">
           <table id="customers-sin">

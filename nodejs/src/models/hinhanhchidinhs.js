@@ -18,6 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "id",
         as: "hinhanhpcd_phieuchidinh",
       });
+
+      hinhanhchidinhs.belongsTo(models.dichvus, {
+        foreignKey: "id_DichVu",
+        targetKey: "id",
+        as: "hinhanh_dichvu",
+      });
     }
   }
   hinhanhchidinhs.init(

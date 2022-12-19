@@ -57,7 +57,7 @@ class Information extends Component {
     }
   }
 
-  async componentDidUpdate(prevProps, presState, snapshot) { }
+  async componentDidUpdate(prevProps, presState, snapshot) {}
   editBenhnhan = async (data) => {
     try {
       let response = await editBenhnhanService(data);
@@ -234,7 +234,8 @@ class Information extends Component {
               class="fas fa-cog"
               style={{
                 position: "absolute",
-                left: "960px",
+                // left: "960px", //CSSLong
+                left: "760px",
                 marginTop: "20px",
                 fontSize: "16px",
               }}

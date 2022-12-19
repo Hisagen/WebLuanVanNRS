@@ -24,16 +24,14 @@ class LichSuKham extends Component {
       openChiTiet: false,
       LichSuKham: [],
       data: {},
+      ArrayImage: [],
     };
   }
   async componentDidMount() {
     let items = JSON.parse(localStorage.getItem("persist:benhnhan"));
     let dataUser = JSON.parse(items?.benhnhanInfo);
-    console.log("=============> dataUser ngoài for", dataUser);
     if (items && dataUser?.benhnhan?.id) {
-      console.log("đúng");
       let thongtin = await getBenhNhanDangkyIdService(dataUser?.benhnhan?.id);
-      console.log("++++++++++ thông tin", thongtin);
       if (thongtin.errCode === 0) {
         this.setState({
           LichSuKham: thongtin.data,
@@ -64,9 +62,14 @@ class LichSuKham extends Component {
     });
   };
   handleChiTiet = async (data) => {
-    console.log("it dang ky", data.id);
-    let api = await getHinhAnhChiDinhIdDangKyService(data.id);
-    console.log("api", api);
+    // console.log("it dang ky", data.id);
+    // let api = await getHinhAnhChiDinhIdDangKyService(data.id);
+    // if (api && api.data.length > 0) {
+    //   this.setState({
+    //     ArrayImage: api.data,
+    //   });
+    // }
+    // console.log("api", api);
     this.setState({
       openChiTiet: true,
       data: data,
@@ -99,16 +102,7 @@ class LichSuKham extends Component {
           isShowBanner={false}
           pageInformation={true}
         />
-        <div>
-          test hình ngoài thư mục react
-          <div
-            style={{
-              backgroundImage: `url(${img})`,
-            }}
-          >
-            <img src={img}></img>
-          </div>
-        </div>
+
         <div className="information-container">
           <div
             className=""
@@ -210,25 +204,25 @@ class LichSuKham extends Component {
                         className="trangthai-chuakham"
                         onClick={() => this.handleChiTiet(item)}
                       >
-                        <span>Chưa khám</span>
+                        <span>{item?.trangthaikham}</span>
                       </div>
                     ) : (
                       <>
-                        {item?.trangthaikham == "Đã lập phiếu khám" ? (
+                        {item?.trangthaikham == "Đã lập đơn thuốc" ? (
                           <div
                             className="trangthai-dakham"
                             onClick={() => this.handleChiTiet(item)}
                           >
-                            <span>Đã lập phiếu khám</span>
+                            <span>{item?.trangthaikham}</span>
                           </div>
                         ) : (
                           <>
-                            {item?.trangthaikham == "Đã lập đơn thuốc" ? (
+                            {item?.trangthaikham == "Đã lập phiếu khám" ? (
                               <div
                                 className="trangthai-hoanthanh"
                                 onClick={() => this.handleChiTiet(item)}
                               >
-                                <span>Đã lập đơn thuốc</span>
+                                <span>{item?.trangthaikham}</span>
                               </div>
                             ) : null}
                           </>
@@ -244,125 +238,6 @@ class LichSuKham extends Component {
                 </div>
               );
             })}
-
-          {/* <div className="lichsukham">
-            <div className="table">
-              <div
-                className="time"
-                style={{
-                  background: "#e5ebf5",
-                  borderRadius: "15px",
-                  width: "19%",
-                  height: "100%",
-                  boxShadow:
-                    "inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162)",
-                  //   borderRadiusRightTop
-                }}
-              >
-                <div
-                  className="day"
-                  style={{
-                    fontSize: "50px",
-                    marginTop: "10px",
-                    marginLeft: "30px",
-                    height: "55px",
-                    color: "#8cb1db",
-                  }}
-                >
-                  30
-                </div>
-                <div>
-                  <span
-                    className="moth-year"
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      position: "absolute",
-                      paddingLeft: "-1px",
-                    }}
-                  >
-                    09/2022 17:00-17:30
-                  </span>
-                </div>
-              </div>
-              <div className="thong-tin">
-                <div
-                  className="name"
-                  style={{ fontWeight: "600", fontSize: "17px" }}
-                >
-                  SIN
-                </div>
-                <div className="name-doctor" style={{ marginTop: "5px" }}>
-                  Bác Sĩ Khám: Nguyễn Văn A
-                </div>
-                <div className="phong" style={{ marginTop: "5px" }}>
-                  Phòng 01
-                </div>
-              </div>
-              <div className="trangthai-chuakham">
-                <span>Chưa Khám</span>
-              </div>
-            </div>
-          </div>
-          <div className="lichsukham">
-            <div className="table">
-              <div
-                className="time"
-                style={{
-                  background: "#e5ebf5",
-                  borderRadius: "15px",
-                  width: "19%",
-                  height: "100%",
-                  boxShadow:
-                    "inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162)",
-                  //   borderRadiusRightTop
-                }}
-              >
-                <div
-                  className="day"
-                  style={{
-                    fontSize: "50px",
-                    marginTop: "10px",
-                    marginLeft: "30px",
-                    height: "55px",
-                    color: "#8cb1db",
-                  }}
-                >
-                  30
-                </div>
-                <div>
-                  <span
-                    className="moth-year"
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      position: "absolute",
-                      paddingLeft: "-1px",
-                    }}
-                  >
-                    09/2022 17:00-17:30
-                  </span>
-                </div>
-              </div>
-              <div className="thong-tin">
-                <div
-                  className="name"
-                  style={{ fontWeight: "600", fontSize: "17px" }}
-                >
-                  SIN
-                </div>
-                <div className="name-doctor" style={{ marginTop: "5px" }}>
-                  Bác Sĩ Khám: Nguyễn Văn A
-                </div>
-                <div className="phong" style={{ marginTop: "5px" }}>
-                  Phòng 01
-                </div>
-              </div>
-              <div className="trangthai-chokham">
-                <span>Chờ Khám</span>
-              </div>
-            </div>
-          </div> */}
         </div>
         <HomeFooter />
       </>

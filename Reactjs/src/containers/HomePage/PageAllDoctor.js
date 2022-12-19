@@ -77,6 +77,7 @@ class PageAllDoctor extends Component {
               fontWeight: "600",
               color: "#00ba99",
               paddingLeft: "600px",
+              // paddingLeft: "600px", //CSSLong
             }}
           >
             Danh sách bác sĩ

@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import HomePageAdmin from "../containers/System/Admin/HomePageAdmin/HomePageAdmin";
 import HomeHeaderAdmin from "../containers/System/Admin/HomePageAdmin/HomeHeaderAdmin";
 import HomeHeaderNhanVien from "../containers/System/Admin/HomePageAdmin/HomeHeaderNhanVien";
+import HomeHeaderBacSi from "../containers/System/Admin/HomePageAdmin/HomeHeaderBacSi";
 import { withRouter } from "react-router";
 
 import VienchucRedux from "../containers/System/Admin/VienchucRedux";
@@ -23,6 +24,8 @@ import XaphuongManage from "../containers/System/Admin/XaphuongManage";
 import NhasxManage from "../containers/System/Admin/NhasxManage";
 
 import "./Admin.scss";
+import XemLich from "../containers/System/Scheduler/XemLich";
+import DatLich from "../containers/System/Scheduler/DatLich";
 class Admin extends Component {
   constructor() {
     super();
@@ -177,7 +180,7 @@ class Admin extends Component {
                             path="/system/ManageSchedule"
                             component={ManageSchedule}
                           />
-
+                          <Route path="/system/DatLich" component={DatLich} />
                           <Route
                             component={() => {
                               return <Redirect to={"/system/ManageSchedule"} />;
@@ -192,6 +195,7 @@ class Admin extends Component {
                             path="/system/ManageSchedule"
                             component={ManageSchedule}
                           />
+                          <Route path="/system/DatLich" component={DatLich} />
                           <Route
                             component={() => {
                               return <Redirect to={"/system/ManageSchedule"} />;
@@ -204,7 +208,39 @@ class Admin extends Component {
                 </div>
               </>
             ) : (
-              <></>
+              <>
+                <div>
+                  <div>
+                    <HomeHeaderBacSi handleAction={this.handleAction} />
+                  </div>
+                  <div className="system-container">
+                    {this.state.action === true ? (
+                      <div className="content">
+                        <Switch>
+                          <Route path="/system/XemLich" component={XemLich} />
+
+                          <Route
+                            component={() => {
+                              return <Redirect to={"/system/XemLich"} />;
+                            }}
+                          />
+                        </Switch>
+                      </div>
+                    ) : (
+                      <div className="content2">
+                        <Switch>
+                          <Route path="/system/XemLich" component={XemLich} />
+                          <Route
+                            component={() => {
+                              return <Redirect to={"/system/XemLich"} />;
+                            }}
+                          />
+                        </Switch>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
             )}
           </>
         )}
